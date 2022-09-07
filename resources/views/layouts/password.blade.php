@@ -8,7 +8,7 @@
     <title>CoronaTime</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     @vite('resources/css/app.css')
     <style>
@@ -33,7 +33,8 @@
             width: 39rem;
         }
 
-        input[type='email'] {
+        input[type='email'],
+        input[type='password'] {
             padding: 1.8rem 2.4rem;
             font-weight: 400;
             font-size: 1.6rem;

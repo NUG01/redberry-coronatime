@@ -14,20 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+	return view('login');
 });
 Route::get('/register', function () {
-    return view('register');
+	return view('register');
 });
 Route::get('/reset', function () {
-    return view('password')    ; 
+	return view('password');
 });
 Route::get('/conf', function () {
-    return view('conf');
+	return view('conf');
 });
 Route::get('/updated', function () {
-    return view('updated');
+	return view('updated');
 });
 Route::get('/changePassword', function () {
-    return view('changePassword');
+	return view('changePassword');
+});
+Route::get('/email-conf', function () {
+	return view('emailConf');
+});
+Route::get('/world', function () {
+	return view('worldwide');
+});
+Route::get('/country', function () {
+	return view('countries');
 });
