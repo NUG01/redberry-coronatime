@@ -25,3 +25,6 @@ Route::get('/reset', function () {
 Route::get('/conf', function () {
     return view('conf');
 });
+Route::get('/updated', function () {
+    return view('updated');
+});
