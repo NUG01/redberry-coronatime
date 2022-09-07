@@ -20,11 +20,14 @@ Route::get('/register', function () {
     return view('register');
 });
 Route::get('/reset', function () {
-    return view('password');
+    return view('password')    ; 
 });
 Route::get('/conf', function () {
     return view('conf');
 });
 Route::get('/updated', function () {
     return view('updated');
+});
+Route::get('/changePassword', function () {
+    return view('changePassword');
 });
