@@ -29,6 +29,21 @@
             background-color: #FDFDFD;
             color: #010414;
         }
+
+        input[type='text'] {
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: ##808189;
+
+        }
+
+        input[type='text']:focus {
+            outline: none;
+        }
+
+        input[name='search']::placeholder {
+            padding-left: 2px;
+        }
     </style>
 </head>
 

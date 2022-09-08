@@ -1,7 +1,7 @@
 @extends('layouts.statistics')
 
 @section('content')
-    <main class="w-[85%] h-full flex flex-col m-auto">
+    <main class="w-[85%] flex flex-col m-auto">
         <div class="flex border-b border-[#F6F6F7] mt-[4rem]">
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">Worlwide Statistics</p>
@@ -108,7 +108,7 @@
                                 d="M19.3333 19.3332L14 13.9998M8.66663 16.6665C4.24835 16.6665 0.666626 13.0848 0.666626 8.6665C0.666626 4.24823 4.24835 0.666504 8.66663 0.666504C13.0849 0.666504 16.6666 4.24823 16.6666 8.6665C16.6666 13.0848 13.0849 16.6665 8.66663 16.6665Z"
                                 stroke="#010414" />
                         </svg>
-                        <p class="font-normal text-[1.6rem] text-[#808189]">Enter your email</p>
+                        <input type="text" placeholder="Enter your email" />
                     </div>
                     <button type="submit"
                         class="w-[10rem] h-[5rem] bg-[#0FBA68] rounded-[3.2rem] mr-[0.8rem] text-[1.4rem] font-black uppercase text-white tracking-wider">Send</button>
