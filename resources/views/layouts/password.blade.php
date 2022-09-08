@@ -24,38 +24,17 @@
         }
 
         body {
-            display: grid;
-            grid-template-columns: 4fr 3fr;
             height: 100vh;
             width: 100vw;
             background-color: #ffffff;
-        }
-
-        .image {
-            background-image: url('images/vaccine.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
         .content {
             width: 39rem;
         }
 
-        input[type=checkbox] {
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            -o-appearance: none;
-        }
-
-        input[type=checkbox]:checked {
-            background-color: #249E2C;
-
-        }
-
-        input[type='text'],
-        input[type='password'],
-        input[type='email'] {
+        input[type='email'],
+        input[type='password'] {
             padding: 1.8rem 2.4rem;
             font-weight: 400;
             font-size: 1.6rem;
