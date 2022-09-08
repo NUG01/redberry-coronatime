@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+////////////////////////////Testing layout!////////////////////////
+
 Route::get('/', function () {
 	return view('login');
 });
