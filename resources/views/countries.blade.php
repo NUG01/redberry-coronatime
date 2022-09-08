@@ -45,9 +45,11 @@
                                         Email</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         Role</th>
-                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                        <span class="sr-only">Edit</span>
-                                    </th>
+                                    @for ($i = 0; $i < 9; $i++)
+                                        <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                            <span class="sr-only">Edit</span>
+                                        </th>
+                                    @endfor
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-[#F6F6F7] bg-white overflow-scroll">

@@ -44,6 +44,14 @@
         input[name='search']::placeholder {
             padding-left: 2px;
         }
+
+
+
+        @media(max-width:900px) {
+            .media {
+                display: none;
+            }
+        }
     </style>
 </head>
 
