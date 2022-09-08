@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,33 +15,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 ////////////////////////////Testing layout!////////////////////////
 
 Route::get('/', function () {
 	return view('login');
 });
-Route::get('/register', function () {
-	return view('register');
+Route::get('/register', [RegisterController::class, 'create'])->name('register_create');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+// Auth::routes(['verify'=>true]);
+
+Route::get('/reset-password', function () {
+	return view('passwordReset');
 });
-Route::get('/reset', function () {
-	return view('password');
+Route::get('/confirmation', function () {
+	return view('confirmation');
 });
-Route::get('/conf', function () {
-	return view('conf');
+Route::get('/password-updated', function () {
+	return view('passwordUpdated');
 });
-Route::get('/updated', function () {
-	return view('updated');
-});
-Route::get('/changePassword', function () {
+Route::get('/change-password', function () {
 	return view('changePassword');
 });
-Route::get('/email-conf', function () {
-	return view('emailConf');
+Route::get('/email-confirmation', function () {
+	return view('emailConfirmation');
 });
-Route::get('/world', function () {
+Route::get('/worldwide', function () {
 	return view('worldwide');
 });
-Route::get('/country', function () {
+Route::get('/countries', function () {
 	return view('countries');
 });

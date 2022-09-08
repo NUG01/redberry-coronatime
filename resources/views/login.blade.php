@@ -38,7 +38,7 @@
                         class="mb-[2.5rem] h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">Log
                         In</button>
                     <div class="flex justify-center gap-[0.4rem] text-[1.6rem]">
-                        <p class="text-[#808189] font-normal">Don't have an account?</p> <a href='#'
+                        <p class="text-[#808189] font-normal">Don't have an account?</p> <a href="/register"
                             class="text-[#010414] font-bold">Sign up for
                             free</a>
                     </div>

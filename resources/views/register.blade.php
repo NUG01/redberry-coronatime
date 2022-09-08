@@ -10,7 +10,7 @@
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.6rem]">Welcome to Coronatime</h2>
                     <p class="font-normal text-[2rem] text-[#808189]">Please enter required info to sign up</p>
                 </div>
-                <form method="#" action="#">
+                <form method="POST" action="/register">
                     @csrf
                     <div class="flex flex-col mb-11">
                         <label for="username" class="text-[#010414] font-bold text-[1.6rem] mb-2">Username</label>
@@ -18,21 +18,45 @@
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
                         <p class="text-normal text-[1.4rem] text-[#808189] mt-2">Username should be unique, min 3 symbols
                         </p>
+                        @error('username')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Username not found</p>
+                            </div>
+                        @enderror
                     </div>
                     <div class="flex flex-col mb-[2.5rem]">
                         <label for="email" class="text-[#010414] font-bold text-[1.6rem] mb-2">Email</label>
                         <input type="email" name="email" id="email" placeholder="Enter your email"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
+                        @error('email')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Email not found</p>
+                            </div>
+                        @enderror
                     </div>
                     <div class="flex flex-col mb-[2.5rem]">
                         <label for="password" class="text-[#010414] font-bold text-[1.6rem] mb-2">Password</label>
                         <input type="password" name="password" id="password" placeholder="Fill in password"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
+                        @error('password')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Password should be min 3 symbols</p>
+                            </div>
+                        @enderror
                     </div>
                     <div class="flex flex-col mb-[2.5rem]">
                         <label for="password2" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat password</label>
                         <input type="password" name="password2" id="password2" placeholder="Repeat password"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
+                        @error('password2')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Password did not match</p>
+                            </div>
+                        @enderror
                     </div>
                     <div class="flex mb-[2.5rem] justify-between">
                         <div class="flex gap-[0.8rem]">
