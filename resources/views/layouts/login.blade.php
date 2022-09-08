@@ -8,7 +8,7 @@
     <title>CoronaTime</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     @vite('resources/css/app.css')
     <style>
@@ -25,7 +25,7 @@
 
         body {
             display: grid;
-            grid-template-columns: 4.2fr 3fr;
+            grid-template-columns: 4fr 3fr;
             height: 100vh;
             width: 100vw;
             background-color: #ffffff;
@@ -38,6 +38,10 @@
             background-size: cover;
         }
 
+        .content {
+            width: 39rem;
+        }
+
         input[type=checkbox] {
             -moz-appearance: none;
             -webkit-appearance: none;
@@ -45,15 +49,17 @@
         }
 
         input[type=checkbox]:checked {
-            background-color: #E6E6E7;
+            background-color: #249E2C;
+
         }
 
-        input[type='text'] {
+        input[type='text'],
+        input[type='password'],
+        input[type='email'] {
             padding: 1.8rem 2.4rem;
-        }
-
-        input[type='password'] {
-            padding: 1.8rem 2.4rem;
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #010414;
         }
 
         input::placeholder {
