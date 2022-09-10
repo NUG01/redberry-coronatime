@@ -9,11 +9,11 @@
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.6rem]">Welcome Back!</h2>
                     <p class="font-normal text-[2rem] text-[#808189]">Welcome back! Please enter your details</p>
                 </div>
-                <form method="#" action="#">
+                <form method="POST" action="/">
                     @csrf
                     <div class="flex flex-col mb-11">
-                        <label for="username" class="text-[#010414] font-bold text-[1.6rem] mb-2">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Enter unique username or email"
+                        <label for="identify" class="text-[#010414] font-bold text-[1.6rem] mb-2">Username</label>
+                        <input type="text" name="identify" id="identify" placeholder="Enter unique username or email"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
                     </div>
                     <div class="flex flex-col mb-[2.5rem]">
@@ -25,10 +25,10 @@
                         <div class="flex gap-[0.8rem]">
                             <div class="relative">
                                 <x-checkbox-icon></x-checkbox-icon>
-                                <input type="checkbox" name="checkbox" id="checkbox" value="yes"
+                                <input type="checkbox" name="remember" id="remember"
                                     class="border border-[#E6E6E7] border-solid w-[20px] h-[20px] rounded-[4px] cursor-pointer">
                             </div>
-                            <label for="checkbox" class="text-[#010414] font-semibold text-[1.4rem] cursor-pointer">Remember
+                            <label for="remember" class="text-[#010414] font-semibold text-[1.4rem] cursor-pointer">Remember
                                 this
                                 device</label>
                         </div>

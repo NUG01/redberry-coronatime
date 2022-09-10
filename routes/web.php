@@ -23,6 +23,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::get('/verify', [RegisterController::class, 'verifyUser'])->name('verify.user');
 
 Route::get('/', [LoginController::class, 'show'])->name('login.show');
+Route::post('/', [LoginController::class, 'login'])->name('user.login');
 
 Route::get('/confirmation', [RegisterController::class, 'show'])->name('register.sendEmail');
 
