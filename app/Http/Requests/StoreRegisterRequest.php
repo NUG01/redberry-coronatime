@@ -17,7 +17,7 @@ class StoreRegisterRequest extends FormRequest
 			'username' => 'required|min:3|unique:users,username',
 			'email'    => 'required|unique:users,email|email',
 			'password' => 'required|min:3',
-			'password2'=> 'required|same:password',
+			'repeat-password'=> 'required|same:password',
 		];
 	}
 }

@@ -14,14 +14,14 @@
                     @csrf
                     <div class="flex flex-col mb-11">
                         <label for="username" class="text-[#010414] font-bold text-[1.6rem] mb-2">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Enter unique username or email"
+                        <input type="text" name="username" id="username" placeholder="Enter unique username"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
                         <p class="text-normal text-[1.4rem] text-[#808189] mt-2">Username should be unique, min 3 symbols
                         </p>
                         @error('username')
                             <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                                 <x-errorSVG></x-errorSVG>
-                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Username not found</p>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
                             </div>
                         @enderror
                     </div>
@@ -32,7 +32,7 @@
                         @error('email')
                             <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                                 <x-errorSVG></x-errorSVG>
-                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Email not found</p>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
                             </div>
                         @enderror
                     </div>
@@ -43,18 +43,18 @@
                         @error('password')
                             <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                                 <x-errorSVG></x-errorSVG>
-                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Password should be min 3 symbols</p>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
                             </div>
                         @enderror
                     </div>
                     <div class="flex flex-col mb-[2.5rem]">
-                        <label for="password2" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat password</label>
-                        <input type="password" name="password2" id="password2" placeholder="Repeat password"
+                        <label for="repeat-password" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat password</label>
+                        <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat password"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
-                        @error('password2')
+                        @error('repeat-password')
                             <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                                 <x-errorSVG></x-errorSVG>
-                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">Password did not match</p>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
                             </div>
                         @enderror
                     </div>

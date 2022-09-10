@@ -19,17 +19,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('login');
+})->name('login.create');
+Route::get('/email', function () {
+	return view('mail.registerEmail');
 });
-Route::get('/register', [RegisterController::class, 'create'])->name('register_create');
+Route::get('/register', [RegisterController::class, 'create'])->name('register.create');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 // Auth::routes(['verify'=>true]);
 
+Route::get('/confirmation',[RegisterController::class,'sendEmail'])->name('register.sendEmail');
 Route::get('/reset-password', function () {
 	return view('passwordReset');
 });
-Route::get('/confirmation', function () {
-	return view('confirmation');
-});
+
 Route::get('/password-updated', function () {
 	return view('passwordUpdated');
 });
