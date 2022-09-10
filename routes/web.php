@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,17 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 ////////////////////////////Testing layout!////////////////////////
 
-Route::get('/', function () {
-	return view('login');
-})->name('login.create');
-Route::get('/email', function () {
-	return view('mail.registerEmail');
-});
 Route::get('/register', [RegisterController::class, 'create'])->name('register.create');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-// Auth::routes(['verify'=>true]);
+Route::post('/register', [RegisterController::class, 'register'])->name('register.register');
 
-Route::get('/confirmation',[RegisterController::class,'sendEmail'])->name('register.sendEmail');
+Route::get('/verify', [RegisterController::class, 'verifyUser'])->name('verify.user');
+
+Route::get('/', [LoginController::class, 'show'])->name('login.show');
+
+Route::get('/confirmation', [RegisterController::class, 'show'])->name('register.sendEmail');
+
 Route::get('/reset-password', function () {
 	return view('passwordReset');
 });

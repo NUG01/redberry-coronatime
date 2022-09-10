@@ -9,11 +9,3 @@
         </a>
     </td>
 </tr>
-
-{{-- <tr>
-    <td class="header">
-
-        <img src="images/emailConf.png" alt="Dashboard" style="width:40%; text-align:center; margin-bottom:40px">
-
-    </td>
-</tr> --}}

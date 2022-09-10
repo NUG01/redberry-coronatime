@@ -28,13 +28,6 @@ blockquote {
     text-align: left;
 }
 
-a {
-    color: #3869d4;
-}
-
-a img {
-    border: none;
-}
 
 /* Typography */
 
@@ -94,7 +87,10 @@ img {
     padding: 0;
     width: 100%;
 }
-
+a{
+    align-items: center !important;
+    justify-content: center !important;
+}
 /* Header */
 
 .header {
