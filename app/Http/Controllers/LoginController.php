@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLoginRequest;
+use App\Http\Requests\LoginRequest;
+use App\Models\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 
@@ -12,23 +14,30 @@ class LoginController extends Controller
 	{
 		return view('login');
 	}
-	public function login(StoreLoginRequest $request)
+	public function login(LoginRequest $request)
 	{
 
-  
-		$identify=$request->validated()['identify'];
+    
+    $identify=$request->validated()['username'];
 		$password=$request->validated()['password'];
     $this->validated=filter_var($identify,FILTER_VALIDATE_EMAIL)?'email':'username';
 
   
   if(auth()->attempt(array($this->validated=>$identify, 'password'=>$password,'is_verified' => 1))){
- 
+   
     return redirect('/worldwide');
   }else{
-    return redirect('/');
+
+    return redirect()->back()->with('incorrect','Provided credentials are incorrect. Try again.');
     
   }
 
-  //  $request->validated()->merge([$this->validated => $identify]);
+  
 	}
+
+  public function logout(){
+          auth()->logout();
+          return redirect('/');
+       
+  }
 }

@@ -18,10 +18,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
 	use Notifiable;
 
-	// 	public function sendEmailVerificationNotification()
-	// {
-	//     $this->notify(new \App\Notifications\VerifyEmail);
-	// }
 
 	/**
 	 * The attributes that are mass assignable.

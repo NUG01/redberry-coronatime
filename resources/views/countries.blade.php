@@ -6,8 +6,8 @@
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">Worlwide Statistics</p>
                 <div class="flex justify-between">
-                    <a href="#" class="font-normal text-[1.6rem]">Worldwide</a>
-                    <a href="#" class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">By
+                    <a href="/worldwide" class="font-normal text-[1.6rem]">Worldwide</a>
+                    <a href="/countries" class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">By
                         country</a>
                 </div>
             </div>

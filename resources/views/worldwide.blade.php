@@ -6,9 +6,9 @@
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">Worlwide Statistics</p>
                 <div class="flex justify-between">
-                    <a href="#"
+                    <a href="/worldwide"
                         class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">Worldwide</a>
-                    <a href="#" class="font-normal text-[1.6rem]">By country</a>
+                    <a href="/countries" class="font-normal text-[1.6rem]">By country</a>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                     email</p>
                 <form class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
                     <div class="flex gap-[1.6rem] ml-[3.2rem]">
-                      <x-search-icon></x-search-icon>
+                        <x-search-icon></x-search-icon>
                         <input type="text" placeholder="Enter your email" />
                     </div>
                     <button type="submit"

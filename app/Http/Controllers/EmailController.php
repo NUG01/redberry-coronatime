@@ -16,6 +16,5 @@ class EmailController extends Controller
 		];
 
 		Mail::to($email)->send(new RegisterEmail($data));
-		return redirect('/confirmation');
 	}
 }

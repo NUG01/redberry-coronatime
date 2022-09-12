@@ -47,8 +47,9 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="flex flex-col mb-[2.5rem]">
-                        <label for="repeat-password" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat password</label>
+                    <div class="flex flex-col mb-[4.2rem]">
+                        <label for="repeat-password" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat
+                            password</label>
                         <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat password"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
                         @error('repeat-password')
@@ -58,24 +59,12 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="flex mb-[2.5rem] justify-between">
-                        <div class="flex gap-[0.8rem]">
-                            <div class="relative">
-                                <x-checkbox-icon></x-checkbox-icon>
-                                <input type="checkbox" name="checkbox" id="checkbox" value="yes"
-                                    class="border border-[#E6E6E7] border-solid w-[20px] h-[20px] rounded-[4px] cursor-pointer">
-                            </div>
-                            <label for="checkbox" class="text-[#010414] font-semibold text-[1.4rem] cursor-pointer">Remember
-                                this
-                                device</label>
-                        </div>
-                    </div>
                     <button type="submit"
                         class="mb-[2.5rem] h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">Sign
                         up
                     </button>
                     <div class="flex justify-center gap-[0.4rem] text-[1.6rem]">
-                        <p class="text-[#808189] font-normal">Already have an account?</p> <a href='#'
+                        <p class="text-[#808189] font-normal">Already have an account?</p> <a href='/'
                             class="text-[#010414] font-bold">Log in</a>
                     </div>
                 </form>

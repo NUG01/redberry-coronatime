@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreLoginRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
 
 
@@ -15,9 +15,10 @@ class StoreLoginRequest extends FormRequest
 	 */
 	public function rules()
 	{
+   
 		return [
-			'identify'       => 'required|min:3',
-			'password'       => 'required|min:3'
+			'username'       => 'required|min:3',
+			'password'       => 'required'
 			
 		];
 	}
