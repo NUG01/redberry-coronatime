@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,34 +17,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
 
+Route::get('/register', [RegisterController::class, 'create'])->name('register.create')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.register')->middleware('guest');
 
-////////////////////////////Testing layout!////////////////////////
+Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
 
-Route::get('/', function () {
-	return view('login');
+Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect')->middleware('guest');
+Route::get('/login', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout.destroy')->middleware('auth');
+
+Route::get('/email-confirmation', function () {
+	return view('emailConfirmation');
 });
-Route::get('/register', function () {
-	return view('register');
+
+Route::get('/reset-password', [ResetPasswordController::class, 'show'])->name('resetPassword.show');
+Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('resetPassword.send');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetForm'])->name('resetPassword.form');
+Route::post('/password-changed', [ResetPasswordController::class, 'update'])->name('password.update');
+
+Route::get('/password-updated', function () {
+	return view('passwordUpdated');
 });
-Route::get('/reset', function () {
-	return view('password');
-});
-Route::get('/conf', function () {
-	return view('conf');
-});
-Route::get('/updated', function () {
-	return view('updated');
-});
-Route::get('/changePassword', function () {
+Route::get('/change-password', function () {
 	return view('changePassword');
 });
-Route::get('/email-conf', function () {
-	return view('emailConf');
-});
-Route::get('/world', function () {
+Route::get('/worldwide', function () {
 	return view('worldwide');
-});
-Route::get('/country', function () {
+})->middleware('auth');
+Route::get('/countries', function () {
 	return view('countries');
-});
+})->middleware('auth');

@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
+use Illuminate\Contracts\View\View;
+
+class RegisterController extends Controller
+{
+	public function create(): View
+	{
+		return view('register');
+	}
+
+	public function register(RegisterRequest $request): View
+	{
+		$user = User::create([
+			'email'             => $request->email,
+			'username'          => $request->username,
+			'password'          => bcrypt($request->password),
+			'verificationCode' => sha1(time()),
+		]);
+		if ($user != null)
+		{
+			EmailVerificationController::sendEmail($user->username, $user->email, $user->verificationCode);
+			return view('confirmation');
+		}
+	}
+}
