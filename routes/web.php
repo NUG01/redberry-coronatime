@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,9 +40,10 @@ Route::get('/email-confirmation', function () {
 });
 
 
-Route::get('/reset-password', function () {
-	return view('passwordReset');
-});
+Route::get('/reset-password', [ResetPasswordController::class,'show'])->name('resetPassword.show');
+Route::post('/reset-password', [ResetPasswordController::class,'send'])->name('resetPassword.send');
+Route::get('/reset-password/{token}', [ResetPasswordController::class,'resetForm'])->name('resetPassword.form');
+Route::post('/password-changed', [ResetPasswordController::class,'update'])->name('password.update');
 
 Route::get('/password-updated', function () {
 	return view('passwordUpdated');

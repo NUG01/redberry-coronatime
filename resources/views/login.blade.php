@@ -46,7 +46,7 @@
                                 this
                                 device</label>
                         </div>
-                        <a href="#" class="text-[#2029F3] font-semibold text-[1.4rem]">Forgot password?</a>
+                        <a href="/reset-password" class="text-[#2029F3] font-semibold text-[1.4rem]">Forgot password?</a>
                     </div>
                     @if (session()->has('incorrect'))
                         <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem] mb-[1rem]">
