@@ -20,4 +20,12 @@ class RegisterRequest extends FormRequest
 			'repeat-password'=> 'required|same:password',
 		];
 	}
+
+// 	public function prepareforvalidation()
+// {
+//     $this->merge([
+//         'password' => $this->password,
+//         'verification_code' => sha1(time()),
+//     ]);
+// }
 }

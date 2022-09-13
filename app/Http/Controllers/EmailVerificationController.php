@@ -2,25 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegisterEmail;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
 
 class EmailVerificationController extends Controller
 {
-    public function verifyUser()
+	public function verifyUser(): RedirectResponse|View
 	{
-		$verification_code = Request::get('code');
-		$user = User::where(['verification_code'=>$verification_code])->first();
+		$verificationCode = Request::get('code');
+		$user = User::where(['verification_code'=>$verificationCode])->first();
 		if ($user != null)
 		{
-           
 			$user->is_verified = 1;
 			$user->save();
-			return view('emailConfirmation',['code'=>$verification_code]);
+			return view('emailConfirmation', ['code'=>$verificationCode]);
 		}
 		else
 		{
 			return redirect('/register');
 		}
+	}
+
+	public static function sendEMail($username, $email, $verificationCode)
+	{
+		$data = [
+			'email'             => $email,
+			'verification_code' => $verificationCode,
+			'username'          => $username,
+		];
+
+		Mail::to($email)->send(new RegisterEmail($data));
 	}
 }

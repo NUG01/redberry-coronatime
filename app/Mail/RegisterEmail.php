@@ -28,7 +28,7 @@ class RegisterEmail extends Mailable
 	public function build()
 	{
 		return $this->from('nskhiereli@gmail.com', 'CoronaTime')
-        ->subject('Account Confirmation')
-        ->markdown('emails.verify.account', ['url'=>$this->data['verification_code']]);
+		->subject('Account Confirmation')
+		->markdown('emails.verify.account', ['url'=>$this->data['verification_code']]);
 	}
 }

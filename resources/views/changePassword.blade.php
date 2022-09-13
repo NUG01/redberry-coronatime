@@ -15,12 +15,24 @@
                     <label for="password" class="text-[#010414] font-bold text-[1.6rem] mb-2">New password</label>
                     <input type="password" name="password" id="password" placeholder="Enter new password"
                         class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid mb-[2.5rem]" />
+                        @error('password')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
+                            </div>
+                        @enderror
                 </div>
                 <div class="flex flex-col">
                     <label for="repeat-password" class="text-[#010414] font-bold text-[1.6rem] mb-2">Repeat
                         password</label>
                     <input type="password" name="repeat-password" id="repeat-password" placeholder="Repeat password"
                         class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid" />
+                        @error('repeat-password')
+                            <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
+                                <x-errorSVG></x-errorSVG>
+                                <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
+                            </div>
+                        @enderror
                 </div>
                 <button type="submit" style="margin-top: 6rem"
                     class="h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">Save

@@ -55,6 +55,5 @@ class VerifyEmail extends Notification
 	 */
 	public function toArray($notifiable)
 	{
-	
 	}
 }

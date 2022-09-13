@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register.create')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.register')->middleware('guest');
@@ -26,24 +26,16 @@ Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name(
 Route::get('/', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
 Route::post('/', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
 
-
-Route::post('/logout',[LoginController::class,'logout'])->name('logout.destroy')->middleware('auth');
-
-
-
-
-
-
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout.destroy')->middleware('auth');
 
 Route::get('/email-confirmation', function () {
-    return view('emailConfirmation');
+	return view('emailConfirmation');
 });
 
-
-Route::get('/reset-password', [ResetPasswordController::class,'show'])->name('resetPassword.show');
-Route::post('/reset-password', [ResetPasswordController::class,'send'])->name('resetPassword.send');
-Route::get('/reset-password/{token}', [ResetPasswordController::class,'resetForm'])->name('resetPassword.form');
-Route::post('/password-changed', [ResetPasswordController::class,'update'])->name('password.update');
+Route::get('/reset-password', [ResetPasswordController::class, 'show'])->name('resetPassword.show');
+Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('resetPassword.send');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetForm'])->name('resetPassword.form');
+Route::post('/password-changed', [ResetPasswordController::class, 'update'])->name('password.update');
 
 Route::get('/password-updated', function () {
 	return view('passwordUpdated');
