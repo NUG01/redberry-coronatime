@@ -12,7 +12,7 @@
                 <p style="margin-top: 1.6rem; font-size:1.8rem;color:#010414;font-weight:400;margin-bottom:9rem;">Your
                     password has been
                     updated successfully</p>
-                <a href="#"
+                <a href="/login"
                     class="mb-[2.5rem] h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">Sign
                     in
                 </a>

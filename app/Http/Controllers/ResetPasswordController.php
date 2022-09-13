@@ -26,22 +26,22 @@ class ResetPasswordController extends Controller
 
 	public function update(UpdatePasswordRequest $request): View|RedirectResponse
 	{
-		$check_token = DB::table('password_resets')->where([
+		$checkToken = DB::table('password_resets')->where([
 			'token'=> $request->token,
 		])->first();
 
-		if (!$check_token)
+		if (!$checkToken)
 		{
 			return back();
 		}
 		else
 		{
-			User::where('email', $check_token->email)->update([
+			User::where('email', $checkToken->email)->update([
 				'password'=> Hash::make($request->password),
 			]);
 
 			DB::table('password_resets')->where([
-				'email'=> $check_token->email,
+				'email'=> $checkToken->email,
 			])->delete();
 
 			return view('signResetPassword');
@@ -57,9 +57,9 @@ class ResetPasswordController extends Controller
 			'created_at'=> Carbon::now(),
 		]);
 
-		$action_link = route('resetPassword.form', ['token'=>$token, 'email'=>$request->email]);
+		$actionLink = route('resetPassword.form', ['token'=>$token, 'email'=>$request->email]);
 		$body = 'You asked for password reset? then reset it';
-		Mail::send('emails.verify.reset', ['action_link'=>$action_link, 'body'=>$body], function ($message) use ($request) {
+		Mail::send('emails.verify.reset', ['action_link'=>$actionLink, 'body'=>$body], function ($message) use ($request) {
 			$message->from('nskhiereli@gmail.com', 'CoronaTime');
 			$message->to($request->email, 'CoronaTime')->subject('Reset Password');
 		});

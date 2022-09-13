@@ -12,7 +12,7 @@
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.6rem]">Welcome Back!</h2>
                     <p class="font-normal text-[2rem] text-[#808189]">Welcome back! Please enter your details</p>
                 </div>
-                <form method="POST" action="/">
+                <form method="POST" action="/login">
                     @csrf
                     <div class="flex flex-col mb-11">
                         <label for="username" class="text-[#010414] font-bold text-[1.6rem] mb-2">Username</label>

@@ -19,12 +19,11 @@ class RegisterController extends Controller
 			'email'             => $request->email,
 			'username'          => $request->username,
 			'password'          => bcrypt($request->password),
-			'verification_code' => sha1(time()),
+			'verificationCode' => sha1(time()),
 		]);
-		// $user = User::create([$request->validated()]);
 		if ($user != null)
 		{
-			EmailVerificationController::sendEmail($user->username, $user->email, $user->verification_code);
+			EmailVerificationController::sendEmail($user->username, $user->email, $user->verificationCode);
 			return view('confirmation');
 		}
 	}

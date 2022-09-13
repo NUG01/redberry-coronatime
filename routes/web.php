@@ -24,8 +24,9 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
 
-Route::get('/', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
-Route::post('/', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
+Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect')->middleware('guest');
+Route::get('/login', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout.destroy')->middleware('auth');
 
