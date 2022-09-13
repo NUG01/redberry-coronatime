@@ -19,7 +19,7 @@ class RegisterController extends Controller
 			'email'             => $request->email,
 			'username'          => $request->username,
 			'password'          => bcrypt($request->password),
-			'verificationCode' => sha1(time()),
+			'verificationCode'  => sha1(time()),
 		]);
 		if ($user != null)
 		{
