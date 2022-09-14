@@ -5,7 +5,10 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Models\Country;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Constraint\Count;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +54,22 @@ Route::get('/worldwide', function () {
 Route::get('/countries', function () {
 	return view('countries');
 })->middleware('auth');
+
+
+Route::get('/countries/stats',function(){
+
+	
+	$countriesUrl='https://devtest.ge/countries';
+	
+	$response= Http::get($countriesUrl);
+	$data=json_decode($response->body());
+	foreach($data as $countryData){
+		$countryData=(array)$countryData;
+		$country=new Country();
+		$country['code']=$countryData['code'];
+		$country->setTranslation('name','en',$countryData['name_en']);
+    $country->setTranslation('name','ka',$countryData['name_ka']);
+$country->save();
+dd('saved');
+	}
+});

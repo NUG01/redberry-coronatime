@@ -8,7 +8,8 @@
             <div class="flex flex-col items-center justify-center w-full">
                 <x-confirmation></x-confirmation>
 
-                <p style="margin-top: 1.6rem; font-size:1.8rem;color:#010414;font-weight:400;">Check your email to reset password</p>
+                <p style="margin-top: 1.6rem; font-size:1.8rem;color:#010414;font-weight:400;">
+                    {{ __('translate.check_email') }}</p>
             </div>
 
         </main>

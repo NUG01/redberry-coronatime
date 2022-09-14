@@ -4,11 +4,11 @@
     <main class="w-[85%] flex flex-col m-auto">
         <div class="flex border-b border-[#F6F6F7] mt-[4rem]">
             <div>
-                <p class="font-extrabold text-[2.5rem] mb-[4rem]">Worlwide Statistics</p>
+                <p class="font-extrabold text-[2.5rem] mb-[4rem]">{{ __('translate.worldwide_statistics') }}</p>
                 <div class="flex justify-between">
                     <a href="/worldwide"
-                        class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">Worldwide</a>
-                    <a href="/countries" class="font-normal text-[1.6rem]">By country</a>
+                        class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">{{ __('translate.worldwide') }}</a>
+                    <a href="/countries" class="font-normal text-[1.6rem]">{{ __('translate.countries') }}</a>
                 </div>
             </div>
         </div>
@@ -18,16 +18,17 @@
         <div class="h-[30rem] mt-[12rem] rounded-[16px] flex items-center justify-center"
             style="background: linear-gradient(to right bottom, #eaff81, #C2FF9D 50%, #75A4FF 100%);">
             <div class="flex flex-col items-center justify-center gap-[1.6rem]">
-                <p class="font-black text-[2.5rem]">Get notified first</p>
-                <p class="font-normal text-[1.6rem]">Get <span class="font-bold">personalised</span> notifications via
-                    email</p>
+                <p class="font-black text-[2.5rem]">{{ __('translate.notified_first') }}</p>
+                <p class="font-normal text-[1.6rem]">{{ __('translate.get') }} <span
+                        class="font-bold">{{ __('translate.personalised') }}</span>
+                    {{ __('translate.via_email') }}</p>
                 <form class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
                     <div class="flex gap-[1.6rem] ml-[3.2rem]">
                         <x-search-icon></x-search-icon>
-                        <input type="text" placeholder="Enter your email" />
+                        <input type="text" placeholder="{{ __('translate.enter_email') }}" />
                     </div>
                     <button type="submit"
-                        class="w-[10rem] h-[5rem] bg-[#0FBA68] rounded-[3.2rem] mr-[0.8rem] text-[1.4rem] font-black uppercase text-white tracking-wider">Send</button>
+                        class="w-[10rem] h-[5rem] bg-[#0FBA68] rounded-[3.2rem] mr-[0.8rem] text-[1.4rem] font-black uppercase text-white tracking-wider">{{ __('translate.send') }}</button>
 
                 </form>
             </div>
