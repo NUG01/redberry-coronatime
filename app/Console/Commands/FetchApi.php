@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\Country;
+use App\Models\Statistic;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class FetchApi extends Command
@@ -29,23 +31,50 @@ class FetchApi extends Command
      */
     public function fetchApi()
     {
+        $countriesUrl='https://devtest.ge/countries';
+    
+    $response= Http::get($countriesUrl);
+    $data=json_decode($response->body());
+    
+    
+    foreach($data as $countryData){
+        $countryData=(array)$countryData;
+        Country::where('code', $countryData['code'])->delete();
+        Statistic::where('country_code', $countryData['code'])->delete();
         
-            $countriesUrl='https://devtest.ge/countries';
-        
-        $response= Http::get($countriesUrl);
-        $data=json_decode($response->body());
-        foreach($data as $countryData){
-            $langEn=   $countryData->setTranslation('name','en',$countryData['name']->en);
-         $langKa=  $countryData->setTranslation('name','ka',$countryData['name']->ka);
-            $countryData=(array)$countryData;
-            Country::updateOrCreate([
-                ['code'=>$countryData['code']],
-                ['name'=>['en'=>$langEn,'ka'=>$langKa]]
+        $langEn=   $countryData['name']->en;
+        $langKa=  $countryData['name']->ka;
+        //  dd($translations);
+        Country::Create([
+            'code'=>$countryData['code'],
+            'name'=>[
+                'en'=>$langEn,
+                'ka'=>$langKa
+                ]
             ]);
-            // $country['code']=$countryData['code']
-            
         };
-        // return redirect()->back();
+        $codes= DB::table('countries')->pluck('code');
+    
+        foreach($codes as $code){
+          
+            $statistic = Http::post('https://devtest.ge/get-country-statistics',['code'=>$code]);
+            $dataStats=json_decode($statistic->body());
+            $dataStats=(array)$dataStats;
+            Statistic::Create([
+                'id'=>$dataStats['id'],
+                'country_code'=>$code,
+                'country'=>$dataStats['country'],
+                'confirmed'=>$dataStats['confirmed'],
+                'recovered'=>$dataStats['recovered'],
+                'deaths'=>$dataStats['deaths'],
+                'critical'=>$dataStats['critical'],
+                ]);
+            
+            }
+            return redirect('/worldwide');
+    
+        
+          
     }
     
 }

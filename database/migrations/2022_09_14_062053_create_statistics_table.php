@@ -13,7 +13,7 @@ return new class extends Migration {
 	public function up()
 	{
 		Schema::create('statistics', function (Blueprint $table) {
-			$table->id();
+			$table->integer('id');
 			$table->string('country');
 			$table->string('country_code')->references('code')->on('countries');
 			$table->integer('confirmed');

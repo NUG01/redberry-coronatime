@@ -9,5 +9,5 @@ class Statistic extends Model
 {
 	use HasFactory;
 
-	protected $guarded = ['id'];
+	protected $guarded = [];
 }

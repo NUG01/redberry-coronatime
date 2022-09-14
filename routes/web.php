@@ -57,5 +57,5 @@ Route::get('/countries', function () {
 })->middleware('auth');
 
 
-Route::get('/worldwide/api',[FetchApiController::class,'fetchApi'])->name('country.api');
-Route::get('/worldwide/post',[FetchApiController::class,'postApi'])->name('country.api');
+// Route::get('/worldwide/api',[FetchApiController::class,'fetchApi'])->name('country.api');
+// Route::get('/worldwide/api',[FetchApiController::class,'postApi'])->name('statistic.api');
