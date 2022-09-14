@@ -8,10 +8,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Country extends Model
 {
-    use HasFactory;
-    use HasTranslations;
+	use HasFactory;
 
-    public $translatable=['name'];
+	use HasTranslations;
 
-    protected $guarded=[];
+	public $translatable = ['name'];
+
+	protected $guarded = [];
 }

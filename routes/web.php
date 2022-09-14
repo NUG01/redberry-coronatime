@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\FetchApiController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -56,20 +57,5 @@ Route::get('/countries', function () {
 })->middleware('auth');
 
 
-Route::get('/countries/stats',function(){
-
-	
-	$countriesUrl='https://devtest.ge/countries';
-	
-	$response= Http::get($countriesUrl);
-	$data=json_decode($response->body());
-	foreach($data as $countryData){
-		$countryData=(array)$countryData;
-		$country=new Country();
-		$country['code']=$countryData['code'];
-		$country->setTranslation('name','en',$countryData['name_en']);
-    $country->setTranslation('name','ka',$countryData['name_ka']);
-$country->save();
-dd('saved');
-	}
-});
+Route::get('/worldwide/api',[FetchApiController::class,'fetchApi'])->name('country.api');
+Route::get('/worldwide/post',[FetchApiController::class,'postApi'])->name('country.api');
