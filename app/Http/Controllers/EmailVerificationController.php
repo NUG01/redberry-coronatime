@@ -36,4 +36,9 @@ class EmailVerificationController extends Controller
 		];
 		Mail::to($email)->send(new RegisterEmail($data));
 	}
+
+	public function emailConfirmation(): View
+	{
+		return view('emailConfirmation');
+	}
 }

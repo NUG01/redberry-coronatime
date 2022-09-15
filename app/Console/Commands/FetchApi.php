@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class FetchCountryApi extends Command
+class FetchApi extends Command
 {
 	/**
 	 * The name and signature of the console command.
@@ -41,14 +41,12 @@ class FetchCountryApi extends Command
 			$countryData = (array)$countryData;
 			Country::where('code', $countryData['code'])->delete();
 			Statistic::where('country_code', $countryData['code'])->delete();
-
-			$langEn = $countryData['name']->en;
-			$langKa = $countryData['name']->ka;
+			
 			Country::Create([
 				'code'=> $countryData['code'],
 				'name'=> [
-					'en'=> $langEn,
-					'ka'=> $langKa,
+					'en'=> $countryData['name']->en,
+					'ka'=> $countryData['name']->ka,
 				],
 			]);
 		}

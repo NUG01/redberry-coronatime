@@ -18,7 +18,17 @@ class ResetPasswordController extends Controller
 	{
 		return view('passwordReset');
 	}
-
+	
+	public function showSuccess(): View
+	{
+		return view('passwordUpdated');
+	}
+	
+	public function changePassword(): View
+	{
+		return view('changePassword');
+	}
+	
 	public function resetForm(ResetPasswordRequest $request, $token = null): View
 	{
 		return view('changePassword')->with(['token'=>$token, 'email'=>$request->email]);

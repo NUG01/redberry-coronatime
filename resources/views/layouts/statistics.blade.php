@@ -53,6 +53,20 @@
                 display: none;
             }
         }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 1.2rem;
+            background: #f4f3f3e3;
+            border-radius: 0 8px 8px 0;
+            border-right: 0.1px solid #cbc9c9e3;
+            border-right: 0.1px solid #cbc9c9e3;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            width: 0.75rem;
+            background: #bdbdbde3;
+            border-radius: 0 8px 8px 0;
+        }
     </style>
 </head>
 

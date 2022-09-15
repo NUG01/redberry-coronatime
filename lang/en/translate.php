@@ -42,4 +42,8 @@ return [
 	'personalised'=>'personalised',
 	'via_email'=>'notifications via email',
 	'notified_first'=>'Get notified first',
+	'location'=>'Location',
+	'new_cases'=>'New Cases',
+	'deaths'=>'Deaths',
+	'recovered'=>'Recovered',
 ];
