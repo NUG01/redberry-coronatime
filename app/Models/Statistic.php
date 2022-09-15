@@ -10,4 +10,5 @@ class Statistic extends Model
 	use HasFactory;
 
 	protected $guarded = [];
+
 }

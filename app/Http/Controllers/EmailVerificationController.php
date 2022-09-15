@@ -34,7 +34,6 @@ class EmailVerificationController extends Controller
 			'verification_code' => $verificationCode,
 			'username'          => $username,
 		];
-
 		Mail::to($email)->send(new RegisterEmail($data));
 	}
 }

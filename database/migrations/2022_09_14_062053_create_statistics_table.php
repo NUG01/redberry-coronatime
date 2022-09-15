@@ -15,7 +15,7 @@ return new class extends Migration {
 		Schema::create('statistics', function (Blueprint $table) {
 			$table->integer('id');
 			$table->string('country');
-			$table->string('country_code')->references('code')->on('countries');
+			$table->string('country_code');
 			$table->integer('confirmed');
 			$table->integer('recovered');
 			$table->integer('critical');
