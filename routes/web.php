@@ -57,3 +57,7 @@ Route::get('/countries', function () {
 })->middleware('auth');
 
 
+Route::get('/test',function(){
+	return view('test');
+});
+

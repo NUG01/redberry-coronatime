@@ -16,9 +16,9 @@ class RegisterController extends Controller
 	public function register(RegisterRequest $request): View
 	{
 		$user = User::create([
-			'email'             => $request->email,
-			'username'          => $request->username,
-			'password'          => bcrypt($request->password),
+			'email'              => $request->email,
+			'username'           => $request->username,
+			'password'           => bcrypt($request->password),
 			'verification_code'  => sha1(time()),
 		]);
 		if ($user != null)

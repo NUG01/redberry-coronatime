@@ -24,16 +24,16 @@
                         @for ($i = 0; $i < 30; $i++)
                             <tr>
                                 <td
-                                    class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-[14px] font-medium text-[#010414] sm:pl-6 lg:pl-8">
+                                    class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-[14px] font-normal text-[#010414] sm:pl-6 lg:pl-8">
                                     Lindsay Walton</td>
                                 <td
-                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden sm:table-cell">
+                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-normal text-[#010414] hidden sm:table-cell">
                                     Front-end Developer</td>
                                 <td
-                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden lg:table-cell">
+                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-normal text-[#010414] hidden lg:table-cell">
                                     lindsay.walton@example.com</td>
                                 <td
-                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
+                                    class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-normal text-[#010414]">
                                     Member</td>
 
                             </tr>

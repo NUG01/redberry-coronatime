@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,7 +15,7 @@ class RegisterEmail extends Mailable
 	 *
 	 * @return void
 	 */
-public $data;
+	public $data;
 
 	public function __construct($data)
 	{
@@ -32,6 +31,6 @@ public $data;
 	{
 		return $this->from('nskhiereli@gmail.com', 'CoronaTime')
 		->subject('Account Confirmation')
-		->view('emails.verify.account',['url'=>$this->data['verification_code']]);
+		->view('emails.verify.account', ['url'=>$this->data['verification_code']]);
 	}
 }

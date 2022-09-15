@@ -1,4 +1,4 @@
-@extends('layouts.statistics')
+@extends('layouts.test')
 
 @section('content')
     <main class="w-[85%] flex items-start flex-col m-auto">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <form method="GET" action="#" class="mt-[4rem] mb-[4rem]">
+        <form method="GET" action="#" class="mt-[4rem]">
             <div class="relative">
                 <input name="search" type="text"
                     class="h-[5rem] w-[24.3rem] bg-white rounded-[8px] border border-[#E6E6E7] flex items-center justify-center pl-[5rem]"
@@ -23,7 +23,7 @@
             </div>
         </form>
 
-        <x-table></x-table>
+        <x-test></x-test>
 
     </main>
 @endsection
