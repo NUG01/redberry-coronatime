@@ -9,5 +9,13 @@ use Kyslik\ColumnSortable\Sortable;
 class Statistic extends Model
 {
 	use HasFactory,Sortable;
+	
 	protected $guarded = [];
+
+	public $sortable = ['country',
+	'confirmed',
+	'recovered',
+	'deaths',
+'created_at'];
+
 }

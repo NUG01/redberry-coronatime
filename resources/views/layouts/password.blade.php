@@ -46,6 +46,14 @@
             font-size: 1.6rem;
             color: #808189;
         }
+        input:focus {
+            outline-style: none;
+            box-shadow: 0 0 1.8px 1.8px #202bf372;
+        }
+
+        button:focus {
+            box-shadow: none;
+        }
     </style>
 </head>
 

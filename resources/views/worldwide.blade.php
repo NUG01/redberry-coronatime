@@ -105,16 +105,25 @@
                 <p class="font-normal text-[1.6rem]">{{ __('translate.get') }} <span
                         class="font-bold">{{ __('translate.personalised') }}</span>
                     {{ __('translate.via_email') }}</p>
-                <form class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
+                <form method="POST" action="/worldwide"
+                    class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
+                    @csrf
                     <div class="flex gap-[1.6rem] ml-[3.2rem]">
                         <x-search-icon></x-search-icon>
-                        <input type="text" placeholder="{{ __('translate.enter_email') }}" />
+                        <input name="subscribeEmail" type="email" placeholder="{{ __('translate.enter_email') }}" />
                     </div>
                     <button type="submit"
                         class="w-[10rem] h-[5rem] bg-[#0FBA68] rounded-[3.2rem] mr-[0.8rem] text-[1.4rem] font-black uppercase text-white tracking-wider">{{ __('translate.send') }}</button>
 
                 </form>
             </div>
+
         </div>
+        @if (session()->has('failure'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
+                class="fixed py-4 px-8 rounded-xl bottom-12 right-12 text-3xl drop-shadow-xl bg-[#9b9b9d]">
+                <p class="text-white font-medium">{{ session('failure') }}</p>
+            </div>
+        @endif
     </main>
 @endsection

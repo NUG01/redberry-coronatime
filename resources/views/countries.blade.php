@@ -43,6 +43,7 @@
                                         </p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
+
                                             <x-upArrow></x-upArrow>
                                             <x-downArrow></x-downArrow>
                                         </div>
@@ -103,17 +104,17 @@
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden sm:table-cell">
-                                            {{ $country['confirmed'] }}<span
+                                            {{ number_format($country['confirmed']) }}<span
                                                 style="opacity:0;pointer-events:none">...................................</span>
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden lg:table-cell">
-                                            {{ $country['deaths'] }}<span
+                                            {{ number_format($country['deaths']) }}<span
                                                 style="opacity:0;pointer-events:none">...................................</span>
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
-                                            {{ $country['confirmed'] }}<span
+                                            {{ number_format($country['confirmed']) }}<span
                                                 style="opacity:0;pointer-events:none">...................................</span>
                                         </td>
 

@@ -4,11 +4,13 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\FetchApiController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StatisticController;
 use App\Models\Country;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Constraint\Count;
@@ -25,14 +27,16 @@ use PHPUnit\Framework\Constraint\Count;
 */
 Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
 
+Auth::routes(['verify' => true]);
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
-Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('confirmation.show');
+Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('verification.notice')->middleware('verified');
 
+Route::post('/worldwide', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::get('/worldwide', [StatisticController::class, 'show'])->name('worldwide.show')->middleware('auth');
 Route::get('/countries', [StatisticController::class, 'showTable'])->name('countries.show')->middleware('auth');
 
 Route::controller(LoginController::class)->group(function () {
-	Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect')->middleware('guest');
+	Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect');
 	Route::get('/login', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
 	Route::post('/login', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
 	Route::post('/logout', [LoginController::class, 'logout'])->name('logout.destroy')->middleware('auth');
