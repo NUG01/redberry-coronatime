@@ -78,6 +78,40 @@
         button:focus {
             box-shadow: none;
         }
+
+        @media(max-width:639px) {
+            .resp {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:639px) {
+            .menu {
+                display: block;
+            }
+
+        }
+
+        .unhide {
+            display: none;
+        }
+
+        @media(max-width:800px) {
+            .hide {
+                display: none !important;
+            }
+
+        }
+
+        @media(max-width:799px) {
+            .unhide {
+                display: block !important;
+            }
+
+        }
     </style>
 </head>
 

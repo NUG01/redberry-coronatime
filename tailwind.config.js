@@ -6,7 +6,19 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+          
+        },
+        screens: {
+		
+
+			lg: { max: "1023px" },
+			sm: { max: "639px" },
+			ssm: { min: "640px" },
+			llg: { min: "1024px" },
+			// => @media (max-width: 639px) { ... }
+		},
+      
     },
     plugins: [],
 };

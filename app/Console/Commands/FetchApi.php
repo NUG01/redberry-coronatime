@@ -41,7 +41,7 @@ class FetchApi extends Command
 			$countryData = (array)$countryData;
 			Country::where('code', $countryData['code'])->delete();
 			Statistic::where('country_code', $countryData['code'])->delete();
-			
+
 			Country::Create([
 				'code'=> $countryData['code'],
 				'name'=> [

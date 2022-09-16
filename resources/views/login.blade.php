@@ -1,16 +1,17 @@
 @extends('layouts.login')
 @section('content')
 
-    <body>
+    <body class="sm:grid-cols-1	">
         <div class="relative">
-            <div class="ml-[10%] mt-[4rem] block max-w-[40rem]">
+            <div class="ml-[10%] mt-[4rem] block max-w-[40rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
                 <div class="flex align-center justify-between">
-                    <img src="images/Group 1.png" class="mb-[6rem]">
+                    <img src="images/Group 1.png" class="mb-[6rem] sm:mb-[4rem]">
                     <x-language></x-language>
                 </div>
                 <div class="flex flex-col mb-[2.5rem]">
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.6rem]">{{ __('translate.welcome_back') }}</h2>
-                    <p class="font-normal text-[2rem] text-[#808189]">{{ __('translate.welcome_back_details') }}</p>
+                    <p class="font-normal text-[2rem] sm:text-[1.8rem] text-[#808189]">
+                        {{ __('translate.welcome_back_details') }}</p>
                 </div>
                 <form method="POST" action="/login">
                     @csrf
@@ -43,7 +44,7 @@
                     </div>
 
                     <div class="flex mb-[2.5rem] justify-between">
-                        <div class="flex gap-[0.8rem]">
+                        <div class="flex gap-[0.8rem] items-center">
                             <div class="relative">
                                 <x-checkbox-icon></x-checkbox-icon>
                                 <input type="checkbox" name="remember" id="remember"
@@ -71,6 +72,6 @@
                 </form>
             </div>
         </div>
-        <div class="image"></div>
+        <div class="image sm:hidden"></div>
     </body>
 @endsection

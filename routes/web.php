@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StatisticController;
 use App\Models\Country;
+use GuzzleHttp\Middleware;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -27,8 +28,7 @@ use PHPUnit\Framework\Constraint\Count;
 */
 Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
 
-Auth::routes(['verify' => true]);
-Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
+Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->Middleware('guest');
 Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('verification.notice')->middleware('verified');
 
 Route::post('/worldwide', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');

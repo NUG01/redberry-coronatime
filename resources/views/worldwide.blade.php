@@ -13,8 +13,9 @@
             </div>
         </div>
 
-        <div class="flex justify-between mt-[4rem]">
-            <div class="w-[31%] h-[31rem] bg-[rgba(32,43,243,0.08)] rounded-[16px] flex items-center justify-center">
+        <div class="flex justify-between mt-[4rem] resp sm:gap-x-3	">
+            <div
+                class="w-[31%] sm:w-[100%] sm:col-span-2 sm:h-[23rem] sm:mb-[2rem] bg-[rgba(32,43,243,0.08)] rounded-[16px] flex items-center justify-center">
                 <div class="flex flex-col items-center justify-center gap-[1.6rem]">
                     <div><svg class="absolute" width="92" height="50" viewBox="0 0 92 50" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -37,10 +38,12 @@
                         </svg>
                     </div>
                     <p class="font-medium text-[2rem] mt-[1rem]">{{ __('translate.new_cases') }}</p>
-                    <p class="font-black text-[4rem] text-[#2029F3]">{{ $sumConfirmed }}</p>
+                    <p class="font-black text-[4rem] sm:text-[3.2rem] text-[#2029F3]">{{ $sumConfirmed }}</p>
                 </div>
             </div>
-            <div class="w-[31%] h-[31rem] bg-[rgba(15,186,103,0.08)] rounded-[16px] flex items-center justify-center">
+
+            <div
+                class="w-[31%] sm:w-[100%] h-[31rem] sm:h-[23rem]  bg-[rgba(15,186,103,0.08)] rounded-[16px] flex items-center justify-center">
                 <div class="flex flex-col items-center justify-center gap-[1.6rem]">
                     <div><svg class="absolute" width="92" height="26" viewBox="0 0 92 26" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -64,11 +67,12 @@
                         </svg>
 
                     </div>
-                    <p class="font-medium text-[2rem] mt-[1rem]">{{ __('translate.recovered') }}</p>
-                    <p class="font-black text-[4rem] text-[#0FBA68]">{{ $sumRecovered }}</p>
+                    <p class="font-medium text-[2rem] sm:text-[1.6rem] mt-[1rem]">{{ __('translate.recovered') }}</p>
+                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#0FBA68]">{{ $sumRecovered }}</p>
                 </div>
             </div>
-            <div class="w-[31%] h-[31rem] bg-[rgba(234,214,33,0.08)] rounded-[16px] flex items-center justify-center">
+            <div
+                class="w-[31%] sm:w-[100%] h-[31rem] sm:h-[23rem]  bg-[rgba(234,214,33,0.08)] rounded-[16px] flex items-center justify-center">
                 <div class="flex flex-col items-center justify-center gap-[1.6rem]">
                     <div><svg class="absolute" width="92" height="37" viewBox="0 0 92 37" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -91,14 +95,15 @@
                         </svg>
 
                     </div>
-                    <p class="font-medium text-[2rem] mt-[1rem]">{{ __('translate.death') }}</p>
-                    <p class="font-black text-[4rem] text-[#EAD621]">{{ $sumDeaths }}</p>
+                    <p class="font-medium text-[2rem] sm:text-[1.6rem] mt-[1rem]">{{ __('translate.death') }}</p>
+                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#EAD621]">{{ $sumDeaths }}</p>
                 </div>
             </div>
+
         </div>
 
 
-        <div class="h-[30rem] mt-[12rem] rounded-[16px] flex items-center justify-center"
+        <div class="h-[30rem] mt-[12rem] rounded-[16px] flex items-center justify-center sm:hidden"
             style="background: linear-gradient(to right bottom, #eaff81, #C2FF9D 50%, #75A4FF 100%);">
             <div class="flex flex-col items-center justify-center gap-[1.6rem]">
                 <p class="font-black text-[2.5rem]">{{ __('translate.notified_first') }}</p>
