@@ -19,8 +19,20 @@ class StatisticController extends Controller
     ]);
     }
     
-    public function showTable(): View
-    {
-        return view('countries',['data'=>Statistic::all(),'countries'=>Country::all()]);
+    public function showTable(Request $request): View
+    {     
+      
+        $statistic=Statistic::all();
+
+        
+        if(request('search'))
+        {
+            $countryName = $request->input('search');
+            $statistic = Statistic::query()
+            ->where('country', 'LIKE', "%{$countryName}%")
+            ->get();
+        }
+        
+      return view('countries',['data'=>$statistic,'countries'=>Country::all()]);
     }
 }

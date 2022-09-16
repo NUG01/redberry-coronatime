@@ -25,17 +25,11 @@ use PHPUnit\Framework\Constraint\Count;
 */
 Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
 
-
-
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
 Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('confirmation.show');
 
-
-
-
 Route::get('/worldwide', [StatisticController::class, 'show'])->name('worldwide.show')->middleware('auth');
 Route::get('/countries', [StatisticController::class, 'showTable'])->name('countries.show')->middleware('auth');
-
 
 Route::controller(LoginController::class)->group(function () {
 	Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect')->middleware('guest');

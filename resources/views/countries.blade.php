@@ -14,13 +14,19 @@
         </div>
         <form method="GET" action="#" class="mt-[4rem] mb-[4rem]">
             <div class="relative">
-                <input name="search" type="text"
-                    class="h-[5rem] w-[24.3rem] bg-white rounded-[8px] border border-[#E6E6E7] flex items-center justify-center pl-[5rem]"
-                    placeholder="{{ __('translate.search_country') }}">
+                <div class="flex items-center"><input name="search" type="text"
+                        class="h-[5rem] w-[24.3rem] bg-white rounded-[8px] border border-[#E6E6E7] flex items-center justify-center pl-[5rem]"
+                        placeholder="{{ __('translate.search_country') }}">
+                    <a href="/countries">
+                        <ion-icon name="refresh-outline" class="pl-[1.6rem] w-[2.4rem] h-[2.4rem] text-[#808189]">
+                        </ion-icon>
+                    </a>
+                </div>
                 <button type="submit" class="absolute top-1/2 left-0 -translate-y-1/2 translate-x-full"">
                     <x-search-icon></x-search-icon>
                 </button>
             </div>
+
         </form>
         <div class="mt-8 flex flex-col w-full px-4 sm:px-6 lg:px-8">
             <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
