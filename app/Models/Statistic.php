@@ -12,9 +12,9 @@ class Statistic extends Model
 
 	protected $guarded = [];
 
-	public $sortable = ['country',
-		'confirmed',
-		'recovered',
-		'deaths',
-		'created_at', ];
+	// public $sortable = ['country',
+	// 	'confirmed',
+	// 	'recovered',
+	// 	'deaths',
+	// 	'created_at', ];
 }

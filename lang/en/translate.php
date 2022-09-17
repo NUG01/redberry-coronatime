@@ -46,4 +46,5 @@ return [
 	'new_cases'=>'New Cases',
 	'deaths'=>'Deaths',
 	'recovered'=>'Recovered',
+	'login_fail'=>'Provided credentials are incorrect. Try again',
 ];

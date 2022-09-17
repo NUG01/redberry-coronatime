@@ -33,8 +33,7 @@ class FetchApi extends Command
 	{
 		$countriesUrl = 'https://devtest.ge/countries';
 
-		$response = Http::get($countriesUrl);
-		$data = json_decode($response->body());
+		$data = json_decode(Http::get($countriesUrl)->body());
 
 		foreach ($data as $countryData)
 		{

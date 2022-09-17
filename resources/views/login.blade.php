@@ -59,7 +59,7 @@
                     @if (session()->has('incorrect'))
                         <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem] mb-[1rem]">
                             <x-errorSVG></x-errorSVG>
-                            <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ session('incorrect') }}</p>
+                            <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ __('translate.login_fail') }}</p>
                         </div>
                     @endif
                     <button type="submit"
