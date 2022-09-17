@@ -113,7 +113,7 @@
                 <form method="POST" action="/worldwide"
                     class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
                     @csrf
-                    <div class="flex gap-[1.6rem] ml-[3.2rem]">
+                    <div class="flex items-center gap-[1.6rem] ml-[3.2rem]">
                         <x-search-icon></x-search-icon>
                         <input name="subscribeEmail" type="email" placeholder="{{ __('translate.enter_email') }}" />
                     </div>

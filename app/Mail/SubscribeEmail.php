@@ -28,7 +28,7 @@ class SubscribeEmail extends Mailable
 	{
 		{
 			return $this->from('nskhiereli@gmail.com', 'CoronaTime')
-			->subject('Subscribtion')
+			->subject('Subscription')
 			->view('emails.verify.subscribe');
 		}
 	}

@@ -113,6 +113,10 @@
             }
 
         }
+
+        input::placeholder {
+            font-size: 14px;
+        }
     </style>
 </head>
 

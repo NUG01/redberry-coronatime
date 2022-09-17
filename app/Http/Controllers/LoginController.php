@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Symfony\Component\Console\Input\Input;
 
 class LoginController extends Controller
 {
@@ -19,32 +18,34 @@ class LoginController extends Controller
 		$username = $request->validated()['username'];
 		$password = $request->validated()['password'];
 		$this->validated = filter_var($username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-		
-		if (request('remember')){
-			$rememberToken=true;
-		}else{
-			$rememberToken=false;
 
-		}
-
-		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1],$rememberToken))
+		if (request('remember'))
 		{
-			return redirect('/worldwide');
+			$rememberToken = true;
 		}
 		else
 		{
-			return redirect()->back()->with('incorrect','');
+			$rememberToken = false;
+		}
+
+		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1], $rememberToken))
+		{
+			return redirect()->route('worldwide.show');
+		}
+		else
+		{
+			return redirect()->back()->with('incorrect', '');
 		}
 	}
 
   public function logout(): RedirectResponse
   {
   	auth()->logout();
-  	return redirect('/login');
+  	return redirect()->route('login.show');
   }
 
   public function redirect(): RedirectResponse
   {
-  	return redirect('/login');
+  	return redirect()->route('login.show');
   }
 }
