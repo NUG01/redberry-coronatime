@@ -24,6 +24,7 @@
         html {
             font-size: 62.5%;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
         body {
@@ -115,7 +116,7 @@
     </style>
 </head>
 
-<body>
+<body class="sm:overflow-x-hidden">
     <x-header></x-header>
 
     @yield('content')

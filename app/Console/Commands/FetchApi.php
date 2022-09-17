@@ -42,6 +42,13 @@ class FetchApi extends Command
 			Country::where('code', $countryData['code'])->delete();
 			Statistic::where('country_code', $countryData['code'])->delete();
 
+if($countryData['name']->ka=='ამერიკის შეერთებული შტატები'){
+	$countryData['name']->ka='ა.შ.შ';
+}else{
+	$countryData['name']->ka=$countryData['name']->ka;
+}
+
+
 			Country::Create([
 				'code'=> $countryData['code'],
 				'name'=> [

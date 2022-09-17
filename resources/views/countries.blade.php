@@ -1,8 +1,8 @@
 @extends('layouts.statistics')
 
 @section('content')
-    <main class="w-[85%] flex items-start flex-col m-auto">
-        <div class="flex border-b border-[#F6F6F7] mt-[4rem]">
+    <main class="w-[85%] sm:w-[99.3%] flex items-start flex-col m-auto">
+        <div class="flex border-b border-[#F6F6F7] mt-[4rem] sm:mt-[3rem] sm:px-[7%]">
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">{{ __('translate.worldwide_statistics') }}</p>
                 <div class="flex justify-between">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <form method="GET" action="#" class="mt-[4rem] mb-[4rem]">
+        <form method="GET" action="#" class="mt-[4rem] mb-[4rem] sm:px-[7%] sm:mb-[1.8rem] sm:mt-[1.8rem]">
             <div class="relative">
                 <div class="flex items-center"><input name="search" type="text"
                         class="h-[5rem] w-[24.3rem] bg-white rounded-[8px] border border-[#E6E6E7] flex items-center justify-center pl-[5rem]"
@@ -37,14 +37,14 @@
             <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle">
                     <div
-                        class="shadow-sm ring-1 ring-black ring-opacity-5 overflow-y-scroll h-[60rem] rounded-[8px] scrollbar">
+                        class="shadow-sm ring-1 ring-black ring-opacity-5 overflow-y-scroll h-[60rem] {{ Config::get('app.locale') == 'en' ? 'sm:max-h-[46rem] ' : 'sm:max-h-[44rem] ' }} rounded-[8px] scrollbar">
                         <table class="min-w-full border-separate" style="border-spacing: 0">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col"
-                                        class="items-center sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter sm:pl-6 llg:pl-8">
-                                        <p>{{ __('translate.location') }}<span
-                                                style="opacity:0;pointer-events:none">n</span>
+                                        class="items-center sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left {{ Config::get('app.locale') == 'en' ? 'text-[13px]' : 'text-[11px]' }} font-semibold text-[#010414] backdrop-blur backdrop-filter sm:pl-6 llg:pl-8">
+                                        <p>{{ __('translate.location') }}
+
                                         </p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
@@ -54,7 +54,7 @@
                                         </div>
                                     </th>
                                     <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter sm:table-cell">
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left {{ Config::get('app.locale') == 'en' ? 'text-[13px]' : 'text-[11px]' }} font-semibold text-[#010414] backdrop-blur backdrop-filter sm:table-cell">
                                         <p>{{ __('translate.new_cases') }}
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
@@ -64,9 +64,8 @@
                                         </p>
                                     </th>
                                     <th scope="col"
-                                        class=" sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter lg:table-cell">
-                                        <p>{{ __('translate.deaths') }}<span
-                                                style="opacity:0;pointer-events:none">sss</span>
+                                        class=" sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left {{ Config::get('app.locale') == 'en' ? 'text-[13px]' : 'text-[11px]' }} font-semibold text-[#010414] backdrop-blur backdrop-filter lg:table-cell">
+                                        <p>{{ __('translate.deaths') }}
                                         </p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
@@ -75,26 +74,13 @@
                                         </div>
                                     </th>
                                     <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left {{ Config::get('app.locale') == 'en' ? 'text-[13px]' : 'text-[11px]' }} font-semibold text-[#010414] backdrop-blur backdrop-filter">
                                         <p>{{ __('translate.recovered') }}</p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
                                             <x-upArrow></x-upArrow>
                                             <x-downArrow></x-downArrow>
                                         </div>
-                                    </th>
-
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
                                     </th>
 
                                 </tr>
@@ -104,35 +90,22 @@
                                     <tr>
 
                                         <td
-                                            class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-[14px] font-medium text-[#010414] ssm:pl-6 lg:pl-8">
-                                            {{ $countries->where('code', $country['country_code'])->first()['name'] }}
+                                            class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] ssm:pl-6 lg:pl-8">
+                                            {{ $countries->where('code', $country['country_code'])->first()['name'] == 'United States of America'
+                                                ? 'USA'
+                                                : $countries->where('code', $country['country_code'])->first()['name'] }}
                                         </td>
                                         <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden sm:table-cell">
-                                            {{ number_format($country['confirmed']) }}<span
-                                                style="opacity:0;pointer-events:none">...................................</span>
+                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] hidden sm:table-cell">
+                                            {{ number_format($country['confirmed']) }}
                                         </td>
                                         <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden lg:table-cell">
-                                            {{ number_format($country['deaths']) }}<span
-                                                style="opacity:0;pointer-events:none">...................................</span>
+                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] hidden lg:table-cell">
+                                            {{ number_format($country['deaths']) }}
                                         </td>
                                         <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
-                                            {{ number_format($country['recovered']) }}<span
-                                                style="opacity:0;pointer-events:none">...................................</span>
-                                        </td>
-                                        <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
-                                        </td>
-                                        <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
-                                        </td>
-                                        <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
-                                        </td>
-                                        <td
-                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
+                                            class="whitespace-nowrap border-b border-gray-200 px-3 py-4 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414]">
+                                            {{ number_format($country['recovered']) }}
                                         </td>
 
                                     </tr>
@@ -194,19 +167,19 @@
                                             <x-downArrow></x-downArrow>
                                         </div>
                                     </th>
+                                    <th scope="col"
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
+                                    </th>
+                                    <th scope="col"
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
+                                    </th>
+                                    <th scope="col"
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
+                                    </th>
+                                    <th scope="col"
+                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
+                                    </th>
 
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
-                                    <th scope="col"
-                                        class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-[14px] font-semibold text-[#010414] backdrop-blur backdrop-filter">
-                                    </th>
 
                                 </tr>
                             </thead>
@@ -233,7 +206,6 @@
                                             {{ number_format($country['recovered']) }}<span
                                                 style="opacity:0;pointer-events:none">...................................</span>
                                         </td>
-
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414]">
                                         </td>

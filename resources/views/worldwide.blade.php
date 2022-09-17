@@ -16,7 +16,7 @@
         <div class="flex justify-between mt-[4rem] resp sm:gap-x-3	">
             <div
                 class="w-[31%] sm:w-[100%] sm:col-span-2 sm:h-[23rem] sm:mb-[2rem] bg-[rgba(32,43,243,0.08)] rounded-[16px] flex items-center justify-center">
-                <div class="flex flex-col items-center justify-center gap-[1.6rem]">
+                <div class="flex flex-col items-center justify-center gap-[1.6rem] relative">
                     <div><svg class="absolute" width="92" height="50" viewBox="0 0 92 50" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -44,7 +44,7 @@
 
             <div
                 class="w-[31%] sm:w-[100%] h-[31rem] sm:h-[23rem]  bg-[rgba(15,186,103,0.08)] rounded-[16px] flex items-center justify-center">
-                <div class="flex flex-col items-center justify-center gap-[1.6rem]">
+                <div class="flex flex-col items-center justify-center gap-[1.6rem] relative">
                     <div><svg class="absolute" width="92" height="26" viewBox="0 0 92 26" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -73,7 +73,7 @@
             </div>
             <div
                 class="w-[31%] sm:w-[100%] h-[31rem] sm:h-[23rem]  bg-[rgba(234,214,33,0.08)] rounded-[16px] flex items-center justify-center">
-                <div class="flex flex-col items-center justify-center gap-[1.6rem]">
+                <div class="flex flex-col items-center justify-center gap-[1.6rem] relative">
                     <div><svg class="absolute" width="92" height="37" viewBox="0 0 92 37" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
