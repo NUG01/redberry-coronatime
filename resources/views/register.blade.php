@@ -5,7 +5,10 @@
     <body class="sm:grid-cols-1	">
         <div>
             <div class="ml-[10%] mt-[4rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
-                <img src="images/header.png" class="mb-[6rem] sm:mb-[3rem]">
+                <div class="flex align-center justify-between max-w-[40rem]">
+                    <img src="images/header.png" class="mb-[6rem] sm:mb-[3rem]">
+                    <x-language></x-language>
+                </div>
                 <div class="flex flex-col mb-[2.5rem] sm:mb-[2rem]">
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.2rem]">{{ __('translate.welcome_coronatime') }}
                     </h2>
