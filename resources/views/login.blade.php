@@ -5,7 +5,7 @@
         <div class="relative">
             <div class="ml-[10%] mt-[4rem] block max-w-[40rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
                 <div class="flex align-center justify-between">
-                    <img src="images/Group 1.png" class="mb-[6rem] sm:mb-[4rem]">
+                    <img src="images/header.png" class="mb-[6rem] sm:mb-[4rem]">
                     <x-language></x-language>
                 </div>
                 <div class="flex flex-col mb-[2.5rem]">
@@ -18,15 +18,14 @@
                     <div class="flex flex-col mb-11">
                         <label for="username"
                             class="text-[#010414] font-bold text-[1.6rem] mb-2">{{ __('translate.username') }}</label>
-                        <input type="text" name="username" id="username"
+                        <input type="text" name="username" id="username" value="{{ old('username') }}"
                             placeholder="{{ __('translate.enter_unique_username') }}"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorUser" />
                         @error('username')
                             <style>
                                 .errorUser {
-                                box-shadow: 0 0 1px 1.4px #CC1E1E;
-                            }
-                                
+                                    box-shadow: 0 0 1px 1.4px #CC1E1E;
+                                }
                             </style>
                             <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
 

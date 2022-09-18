@@ -4,7 +4,7 @@
 
     <body class="flex justify-center">
         <main class="content flex flex-col items-center" style="width:42rem">
-            <img src="images/Group 1.png" class="mt-[4rem]" style="margin-bottom: 25rem" />
+            <img src="images/header.png" class="mt-[4rem]" style="margin-bottom: 25rem" />
             <div class="flex flex-col items-center justify-center w-full sm:w-[90%]">
 
                 <x-confirmation></x-confirmation>

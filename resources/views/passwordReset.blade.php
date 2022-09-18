@@ -5,7 +5,7 @@
     <body class="flex justify-center">
         <main class="content flex flex-col items-center">
 
-            <div class="flex flex-col items-center w-full"><img src="images/Group 1.png" class="mt-[4rem]" />
+            <div class="flex flex-col items-center w-full"><img src="images/header.png" class="mt-[4rem]" />
 
                 <p class="font-black text-[2.5rem] text-[#010414] mt-[15rem] sm:mt-[4rem]">
                     {{ __('translate.reset_password') }}
@@ -22,7 +22,9 @@
                     <label for="email"
                         class="text-[#010414] font-bold text-[1.6rem] mb-2">{{ __('translate.email') }}</label>
                     <input type="email" name="email" id="email" placeholder="{{ __('translate.enter_email') }}"
+                        value="{{ old('email') }}"
                         class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorEmail" />
+
                     @error('email')
                         <style>
                             .errorEmail {

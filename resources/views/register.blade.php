@@ -5,7 +5,7 @@
     <body class="sm:grid-cols-1	">
         <div>
             <div class="ml-[10%] mt-[4rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
-                <img src="images/Group 1.png" class="mb-[6rem] sm:mb-[3rem]">
+                <img src="images/header.png" class="mb-[6rem] sm:mb-[3rem]">
                 <div class="flex flex-col mb-[2.5rem] sm:mb-[2rem]">
                     <h2 class="font-black text-[2.5rem] text-[#010414] mb-[1.2rem]">{{ __('translate.welcome_coronatime') }}
                     </h2>
@@ -16,7 +16,7 @@
                     <div class="flex flex-col mb-[2.5rem] sm:mb-[2rem]">
                         <label for="username"
                             class="text-[#010414] font-bold text-[1.6rem] mb-2">{{ __('translate.username') }}</label>
-                        <input type="text" name="username" id="username"
+                        <input type="text" name="username" id="username" value="{{ old('username') }}"
                             placeholder="{{ __('translate.enter_unique_username') }}"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorUser" />
                         @error('username')
@@ -35,6 +35,7 @@
                         <label for="email"
                             class="text-[#010414] font-bold text-[1.6rem] mb-2">{{ __('translate.email') }}</label>
                         <input type="email" name="email" id="email" placeholder="{{ __('translate.email') }}"
+                            value="{{ old('email') }}"
                             class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorEmail" />
                         @error('email')
                             <style>
