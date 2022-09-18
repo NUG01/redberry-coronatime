@@ -15,11 +15,11 @@ class NewsletterController extends Controller
 		if ($request->subscribeEmail == Auth::user()->email)
 		{
 			Mail::to($request->subscribeEmail)->send(new SubscribeEmail());
-			return redirect()->route('worldwide.show');
+			return redirect()->route('worldwide.show')->with('success', '');
 		}
 		else
 		{
-			return redirect()->route('worldwide.show')->with('failure', 'Provided email address is incorrect. Try again');
+			return redirect()->route('worldwide.show')->with('failure', '');
 		}
 	}
 }

@@ -47,4 +47,6 @@ return [
 	'deaths'=>'Deaths',
 	'recovered'=>'Recovered',
 	'login_fail'=>'Provided credentials are incorrect. Try again',
+	'newsletter_failure'=>'Provided email address is incorrect. Try again',
+	'newsletter_success'=>'You subscribed successfully. Thank you',
 ];

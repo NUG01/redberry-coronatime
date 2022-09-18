@@ -127,7 +127,15 @@
         @if (session()->has('failure'))
             <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
                 class="fixed py-4 px-8 rounded-xl bottom-12 right-12 text-3xl drop-shadow-xl bg-[#9b9b9d]">
-                <p class="text-white font-medium">{{ session('failure') }}</p>
+                <p class="text-white font-medium">{{ __('translate.newsletter_failure') }}
+                </p>
+            </div>
+        @endif
+        @if (session()->has('success'))
+            <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
+                class="fixed py-4 px-8 rounded-xl bottom-12 right-12 text-3xl drop-shadow-xl bg-[#9b9b9d]">
+                <p class="text-white font-medium">{{ __('translate.newsletter_success') }}
+                </p>
             </div>
         @endif
     </main>

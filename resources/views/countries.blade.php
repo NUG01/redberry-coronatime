@@ -49,8 +49,12 @@
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
 
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/location-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/location-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
                                     <th scope="col"
@@ -58,8 +62,12 @@
                                         <p>{{ __('translate.new_cases') }}
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/new-cases-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/new-cases-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                         </p>
                                     </th>
@@ -69,8 +77,12 @@
                                         </p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/deaths-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/deaths-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
                                     <th scope="col"
@@ -78,8 +90,12 @@
                                         <p>{{ __('translate.recovered') }}</p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/recovered-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/recovered-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
 
@@ -133,8 +149,12 @@
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
 
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/location-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/location-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
                                     <th scope="col"
@@ -142,8 +162,12 @@
                                         <p>{{ __('translate.new_cases') }}
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/new-cases-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/new-cases-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                         </p>
                                     </th>
@@ -154,8 +178,12 @@
                                         </p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/deaths-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/deaths-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
                                     <th scope="col"
@@ -163,8 +191,12 @@
                                         <p>{{ __('translate.recovered') }}</p>
                                         <div
                                             class="flex flex-col gap-[3px] absolute -translate-x-[150%] -translate-y-[118%]">
-                                            <x-upArrow></x-upArrow>
-                                            <x-downArrow></x-downArrow>
+                                            <a href="/countries/recovered-ascend">
+                                                <x-upArrow></x-upArrow>
+                                            </a>
+                                            <a href="/countries/recovered-descend">
+                                                <x-downArrow></x-downArrow>
+                                            </a>
                                         </div>
                                     </th>
                                     <th scope="col"
