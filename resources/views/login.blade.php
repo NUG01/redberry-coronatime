@@ -5,7 +5,8 @@
         <div class="relative">
             <div class="ml-[10%] mt-[4rem] block max-w-[40rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
                 <div class="flex align-center justify-between">
-                    <img src="images/header.png" class="mb-[6rem] sm:mb-[4rem]">
+                    <img src="{{ url('/images/header.png') }}" class="mb-[6rem] sm:mb-[4rem]">
+                    {{-- <img src="images/header.png" class="mb-[6rem] sm:mb-[4rem]"> --}}
                     <x-language></x-language>
                 </div>
                 <div class="flex flex-col mb-[2.5rem]">

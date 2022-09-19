@@ -38,7 +38,7 @@
                         </svg>
                     </div>
                     <p class="font-medium text-[2rem] mt-[1rem]">{{ __('translate.new_cases') }}</p>
-                    <p class="font-black text-[4rem] sm:text-[3.2rem] text-[#2029F3]">{{ $sumConfirmed }}</p>
+                    <p class="font-black text-[4rem] sm:text-[3.2rem] text-[#2029F3]">{{ number_format($sumConfirmed) }}</p>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
 
                     </div>
                     <p class="font-medium text-[2rem] sm:text-[1.6rem] mt-[1rem]">{{ __('translate.recovered') }}</p>
-                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#0FBA68]">{{ $sumRecovered }}</p>
+                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#0FBA68]">{{ number_format($sumRecovered) }}</p>
                 </div>
             </div>
             <div
@@ -96,7 +96,7 @@
 
                     </div>
                     <p class="font-medium text-[2rem] sm:text-[1.6rem] mt-[1rem]">{{ __('translate.death') }}</p>
-                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#EAD621]">{{ $sumDeaths }}</p>
+                    <p class="font-black text-[4rem] sm:text-[2.4rem] text-[#EAD621]">{{ number_format($sumDeaths) }}</p>
                 </div>
             </div>
 

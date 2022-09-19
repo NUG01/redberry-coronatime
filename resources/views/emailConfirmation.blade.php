@@ -4,7 +4,7 @@
 
     <body class="flex justify-center">
         <main class="content flex flex-col items-center" style="width:42rem">
-            <img src="images/header.png" class="mt-[4rem]" style="margin-bottom: 25rem" />
+            <img src="{{ url('/images/header.png') }}" class="mt-[4rem]" style="margin-bottom: 25rem" />
             <div class="flex flex-col items-center justify-center w-full">
 
                 <x-confirmation></x-confirmation>

@@ -5,7 +5,7 @@
     <body class="flex justify-center">
         <main class="content flex flex-col items-center">
 
-            <div class="flex flex-col items-center w-full"><img src="images/header.png" class="mt-[4rem]" />
+            <div class="flex flex-col items-center w-full"><img src="{{ url('/images/header.png') }}" class="mt-[4rem]" />
 
                 <p class="font-black text-[2.5rem] text-[#010414] mt-[15rem] sm:mt-[4rem]">
                     {{ __('translate.reset_password') }}

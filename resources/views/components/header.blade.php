@@ -1,7 +1,7 @@
 <header class="sm:mt-[0] flex h-[8rem] items-center justify-center border-b border-[
       #F6F6F7] bg-white">
     <div class="flex w-[85%] items-center justify-between">
-        <div class="flex items-center justify-center"><img src="images/header.png" class="h-[4.5rem] sm:h-[3.6rem]" />
+        <div class="flex items-center justify-center"><img src="{{ url('/images/header.png') }}" class="h-[4.5rem] sm:h-[3.6rem]" />
         </div>
         <div class="flex gap-[1.6rem] h-[3.6rem] items-center justify-center">
             <x-languageDropdown></x-languageDropdown>

@@ -6,7 +6,7 @@
         <div>
             <div class="ml-[10%] mt-[4rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
                 <div class="flex align-center justify-between max-w-[40rem]">
-                    <img src="images/header.png" class="mb-[6rem] sm:mb-[3rem]">
+                    <img src="{{ url('/images/header.png') }}" class="mb-[6rem] sm:mb-[3rem]">
                     <x-language></x-language>
                 </div>
                 <div class="flex flex-col mb-[2.5rem] sm:mb-[2rem]">

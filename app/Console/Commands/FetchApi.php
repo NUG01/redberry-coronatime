@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Country;
 use App\Models\Statistic;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class FetchApi extends Command
@@ -31,48 +29,20 @@ class FetchApi extends Command
 	 */
 	public function handle()
 	{
-		$countriesUrl = 'https://devtest.ge/countries';
+		$countries = Http::get('https://devtest.ge/countries')->json();
 
-		$data = json_decode(Http::get($countriesUrl)->body());
-
-		foreach ($data as $countryData)
+		foreach ($countries as $country)
 		{
-			$countryData = (array)$countryData;
-			Country::where('code', $countryData['code'])->delete();
-			Statistic::where('country_code', $countryData['code'])->delete();
-
-			if ($countryData['name']->ka == 'ამერიკის შეერთებული შტატები')
-			{
-				$countryData['name']->ka = 'ა.შ.შ';
-			}
-			else
-			{
-				$countryData['name']->ka = $countryData['name']->ka;
-			}
-
-			Country::Create([
-				'code'=> $countryData['code'],
-				'name'=> [
-					'en'=> $countryData['name']->en,
-					'ka'=> $countryData['name']->ka,
-				],
-			]);
-		}
-		$codes = DB::table('countries')->pluck('code');
-
-		foreach ($codes as $code)
-		{
-			$statistic = Http::post('https://devtest.ge/get-country-statistics', ['code'=>$code]);
-			$dataStats = json_decode($statistic->body());
-			$dataStats = (array)$dataStats;
-			Statistic::Create([
-				'id'          => $dataStats['id'],
-				'country_code'=> $code,
-				'country'     => $dataStats['country'],
-				'confirmed'   => $dataStats['confirmed'],
-				'recovered'   => $dataStats['recovered'],
-				'deaths'      => $dataStats['deaths'],
-				'critical'    => $dataStats['critical'],
+			$statistics = Http::post('https://devtest.ge/get-country-statistics', ['code'=>$country['code']])->json();
+			Statistic::where('country_code', $country['code'])->delete();
+			Statistic::updateOrCreate([
+				'name'        => $country['name'],
+				'country_code'=> $statistics['code'],
+				'country'     => $statistics['country'],
+				'confirmed'   => $statistics['confirmed'],
+				'recovered'   => $statistics['recovered'],
+				'deaths'      => $statistics['deaths'],
+				'critical'    => $statistics['critical'],
 			]);
 		}
 	}

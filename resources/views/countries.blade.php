@@ -32,7 +32,6 @@
 
 
 
-
         <div class="mt-8 flex flex-col w-full px-4 sm:px-6 lg:px-8 unhide">
             <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle">
@@ -102,14 +101,12 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
-                                @foreach ($data as $country)
+                                @foreach ($statistic as $country)
                                     <tr>
 
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] ssm:pl-6 lg:pl-8">
-                                            {{ $countries->where('code', $country['country_code'])->first()['name'] == 'United States of America'
-                                                ? 'USA'
-                                                : $countries->where('code', $country['country_code'])->first()['name'] }}
+                                            {{ $country['country'] == 'United States of America' ? 'USA' : $country['country'] }}
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] hidden sm:table-cell">
@@ -215,13 +212,14 @@
 
                                 </tr>
                             </thead>
+
                             <tbody class="bg-white">
-                                @foreach ($data as $country)
+                                @foreach ($statistic as $country)
                                     <tr>
 
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-[14px] font-medium text-[#010414] ssm:pl-6 llg:pl-8">
-                                            {{ $countries->where('code', $country['country_code'])->first()['name'] }}
+                                            {{ $country['country'] }}
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden ssm:table-cell">

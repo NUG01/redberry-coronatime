@@ -4,7 +4,7 @@
 
     <body class="flex justify-center">
         <main class="content flex flex-col items-center">
-
+            <img src="{{ url('/images/header.png') }}" class="mt-[4rem]" />
             <p class="font-black text-[2.5rem] text-[#010414]" style="margin-top: 15rem">
                 {{ __('translate.reset_password') }}
             </p>
@@ -19,11 +19,11 @@
                         placeholder="{{ __('translate.enter_new_password') }}"
                         class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorPass" />
                     @error('password')
-                            <style>
-                                .errorPass {
-                                    box-shadow: 0 0 1px 1.4px #CC1E1E;
-                                }
-                            </style>
+                        <style>
+                            .errorPass {
+                                box-shadow: 0 0 1px 1.4px #CC1E1E;
+                            }
+                        </style>
                         <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                             <x-errorSVG></x-errorSVG>
                             <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
@@ -38,11 +38,11 @@
                         placeholder="{{ __('translate.repeat_password') }}"
                         class="h-[5.6rem] w-full rounded-xl border border-[#E6E6E7] border-solid errorRepeat" />
                     @error('repeat-password')
-                            <style>
-                                .errorRepeat {
-                                    box-shadow: 0 0 1px 1.4px #CC1E1E;
-                                }
-                            </style>
+                        <style>
+                            .errorRepeat {
+                                box-shadow: 0 0 1px 1.4px #CC1E1E;
+                            }
+                        </style>
                         <div class="flex items-center justify-start gap-[1rem] mt-[1.2rem]">
                             <x-errorSVG></x-errorSVG>
                             <p class="text-[#CC1E1E] font-medium text-[1.4rem]">{{ $message }}</p>
