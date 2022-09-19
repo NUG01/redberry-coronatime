@@ -1,5 +1,5 @@
 #
-### Movie Quotes
+### CoronaTime
 
 "Coronatime" helps people to find out most recent information about covid, which consists of new cases, fatal cases and recovered 
  with covid-19 virus in different countries, information is sorted in table, which can be sorted in any order user wants it to be.
