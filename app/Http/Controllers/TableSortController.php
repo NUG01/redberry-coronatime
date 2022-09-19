@@ -11,7 +11,7 @@ class TableSortController extends Controller
 	public function sort($slug, Request $request): View
 	{
 		$url = getenv('APP_URL');
-		$statistic = Statistic::all();
+		$statistic = Statistic::filter()->get();
 
 		if (url()->current() == $url . '/countries/location-ascend')
 		{
@@ -47,14 +47,6 @@ class TableSortController extends Controller
 		if (url()->current() == $url . '/countries/recovered-descend')
 		{
 			$statistic = $statistic->sortByDesc('recovered')->values();
-		}
-
-		if (request('search'))
-		{
-			$countryName = $request->input('search');
-			$statistic = Statistic::query()
-			->where('country', 'LIKE', "%{$countryName}%")
-			->get();
 		}
 
 		return view('countries', ['statistic'=>$statistic]);

@@ -19,16 +19,7 @@ class LoginController extends Controller
 		$password = $request->validated()['password'];
 		$this->validated = filter_var($username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-		if (request('remember'))
-		{
-			$rememberToken = true;
-		}
-		else
-		{
-			$rememberToken = false;
-		}
-
-		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1], $rememberToken))
+		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1], $request->has('remember_device')))
 		{
 			return redirect()->route('worldwide.show');
 		}

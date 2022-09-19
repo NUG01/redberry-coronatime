@@ -59,13 +59,13 @@
                         <div class="flex gap-[0.8rem] items-center">
                             <div class="relative">
                                 <x-checkbox-icon></x-checkbox-icon>
-                                <input type="checkbox" name="remember" id="remember"
+                                <input type="checkbox" name="remember_device" id="remember_device"
                                     class="border border-[#E6E6E7] border-solid w-[20px] h-[20px] rounded-[4px] cursor-pointer">
                             </div>
-                            <label for="remember"
+                            <label for="remember_device"
                                 class="text-[#010414] font-semibold text-[1.4rem] cursor-pointer">{{ __('translate.remember_device') }}</label>
                         </div>
-                        <a href="/reset-password"
+                        <a href="{{ getenv('APP_URL') }}/forget-password"
                             class="text-[#2029F3] font-semibold text-[1.4rem]">{{ __('translate.forgot_password') }}</a>
                     </div>
                     @if (session()->has('incorrect'))

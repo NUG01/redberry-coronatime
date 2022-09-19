@@ -6,8 +6,8 @@
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">{{ __('translate.worldwide_statistics') }}</p>
                 <div class="flex justify-between">
-                    <a href="/worldwide" class="font-normal text-[1.6rem]">{{ __('translate.worldwide') }}</a>
-                    <a href="/countries"
+                    <a href="{{ getenv('APP_URL') }}/worldwide" class="font-normal text-[1.6rem]">{{ __('translate.worldwide') }}</a>
+                    <a href="{{ getenv('APP_URL') }}/countries"
                         class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">{{ __('translate.countries') }}</a>
                 </div>
             </div>

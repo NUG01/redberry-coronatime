@@ -67,7 +67,7 @@ class ResetPasswordController extends Controller
 			'created_at'=> Carbon::now(),
 		]);
 
-		$actionLink = route('resetPassword.form', ['token'=>$token, 'email'=>$request->email]);
+		$actionLink = route('forgetPassword.form', ['token'=>$token, 'email'=>$request->email]);
 		$body = 'You asked for password reset? then reset it';
 		Mail::send('emails.verify.reset', ['action_link'=>$actionLink, 'body'=>$body], function ($message) use ($request) {
 			$message->from('nskhiereli@gmail.com', 'CoronaTime');

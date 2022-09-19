@@ -18,7 +18,7 @@
                 </p>
 
 
-                <a href="/login"
+                <a href="{{ getenv('APP_URL') }}/login"
                     class="mb-[2.5rem] h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">
                     {{ __('translate.sign_in') }}
                 </a>

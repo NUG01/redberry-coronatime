@@ -8,10 +8,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TableSortController;
-use App\Models\Statistic;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +26,6 @@ Auth::routes(['verify' => true]);
 Route::get('/change-locale/{locale}', [LanguageController::class, 'locale'])->name('locale.change');
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
 Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('verification.notice')->middleware('verified');
-
 
 Route::middleware('auth')->group(function () {
 	Route::get('/worldwide', [StatisticController::class, 'show'])->name('worldwide.show');
@@ -50,11 +47,9 @@ Route::controller(RegisterController::class)->group(function () {
 });
 
 Route::controller(ResetPasswordController::class)->group(function () {
-	Route::get('/reset-password', 'show')->name('resetPassword.show');
-	Route::post('/reset-password', 'send')->name('resetPassword.send');
-	Route::get('/reset-password/{token}', 'resetForm')->name('resetPassword.form');
-	Route::post('/password-changed', 'update')->name('password.update');
-	Route::get('/password-updated', 'showSuccess')->name('password.success');
-	Route::get('/change-password', 'changePassword')->name('password.change');
+	Route::get('/forget-password', 'show')->name('forgetPassword.show');
+	Route::post('/forget-password', 'send')->name('forgetPassword.send');
+	Route::get('/forget-password/{token}', 'resetForm')->name('forgetPassword.form');
+	Route::get('/reset-password', 'changePassword')->name('password.change');
+	Route::post('/reset-password-form', 'update')->name('password.update');
 });
-

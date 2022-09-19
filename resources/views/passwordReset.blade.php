@@ -13,7 +13,7 @@
             </div>
 
 
-            <form method="POST" action="{{ getenv('APP_URL') }}/reset-password"
+            <form method="POST" action="{{ getenv('APP_URL') }}/forget-password"
                 class="w-full sm:mb-[4rem] sm:w-[90%] sm:flex sm:flex-col sm:justify-between sm:h-full"
                 style="margin-top: 5rem">
                 @csrf
