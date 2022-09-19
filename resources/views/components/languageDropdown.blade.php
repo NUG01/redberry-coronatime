@@ -7,9 +7,9 @@
                 </span>
                 <div x-show="show" style="display: none"
                     class="absolute -bottom-full left-0 grid w-full bg-[#f0f0f1] grid-cols-2 rounded-[4px] overflow-hidden	translate-y-[3.6px]">
-                    <a href="/change-locale/en"
+                    <a href="{{ getenv('APP_URL') }}/change-locale/en"
                         class="font-{{ Config::get('app.locale') == 'en' ? 'semibold' : 'normal' }} flex items-center justify-center border-r-[0.7px] border-[#93949b] hover:bg-[#d1d2d7]">EN</a>
-                    <a href="/change-locale/ka"
+                    <a href="{{ getenv('APP_URL') }}/change-locale/ka"
                         class="font-{{ Config::get('app.locale') == 'en' ? 'normal' : 'semibold' }} flex items-center justify-center border-l-[0.7px] border-[#93949b] hover:bg-[#d1d2d7]">KA</a>
 
                 </div>

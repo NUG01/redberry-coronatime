@@ -238,7 +238,7 @@
                                                                         style="font-size:18px;font-weight:400;font-family:'Inter',sans-serif;margin-bottom:40px;color:#010414;">
                                                                         You subscribed for our newsletter successfully
                                                                     </p>
-                                                                    <a href="http://127.0.0.1:8000/" target="_blank"
+                                                                    <a href="{{ getenv('APP_URL') }}/" target="_blank"
                                                                         class="f-fallback button"
                                                                         style="position:relative;width:70%; height:50px; font-size:18px;font-weight:900;font-family:'Inter'; color: #FFF; border:none; background-color: #0FBA68 !important; display: text-align:center; text-decoration: none; border-radius: 8px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); -webkit-text-size-adjust: none; box-sizing: border-box;">
                                                                         <span class="ninja"

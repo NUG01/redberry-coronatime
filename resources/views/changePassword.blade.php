@@ -9,7 +9,8 @@
                 {{ __('translate.reset_password') }}
             </p>
 
-            <form method="POST" action="/password-changed" class="w-full sm:w-[90%]" style="margin-top: 5rem">
+            <form method="POST" action="{{ getenv('APP_URL') }}/password-changed" class="w-full sm:w-[90%]"
+                style="margin-top: 5rem">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="flex flex-col mb-[2.5rem]">

@@ -23,7 +23,7 @@
                         x-show="show" style="display: none">
                         <div class="font-bold text-[1.6rem] mb-[7px] border-b-[1px]">{{ auth()->user()->username }}
                         </div>
-                        <form method="POST" action="/logout">
+                        <form method="POST" action="{{ getenv('APP_URL') }}/logout">
                             @csrf
                             <button type="submit"
                                 class="font-medium text-[1.6rem]">{{ __('translate.log_out') }}</button>

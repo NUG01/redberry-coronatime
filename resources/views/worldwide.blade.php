@@ -110,7 +110,7 @@
                 <p class="font-normal text-[1.6rem]">{{ __('translate.get') }} <span
                         class="font-bold">{{ __('translate.personalised') }}</span>
                     {{ __('translate.via_email') }}</p>
-                <form method="POST" action="/worldwide"
+                <form method="POST" action="{{ getenv('APP_URL') }}/worldwide"
                     class="w-[42rem] h-[6.4rem] bg-white mt-[2.4rem] rounded-[3.2rem] flex items-center justify-between">
                     @csrf
                     <div class="flex items-center gap-[1.6rem] ml-[3.2rem]">

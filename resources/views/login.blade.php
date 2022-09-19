@@ -14,7 +14,7 @@
                     <p class="font-normal text-[2rem] sm:text-[1.8rem] text-[#808189]">
                         {{ __('translate.welcome_back_details') }}</p>
                 </div>
-                <form method="POST" action="/login">
+                <form method="POST" action="{{ getenv('APP_URL') }}/login">
                     @csrf
                     <div class="flex flex-col mb-11">
                         <label for="username"

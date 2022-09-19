@@ -14,7 +14,7 @@
                     </h2>
                     <p class="font-normal text-[2rem] text-[#808189]">{{ __('translate.enter_info') }}</p>
                 </div>
-                <form method="POST" action="/register" class="max-w-[40rem]">
+                <form method="POST" action="{{ getenv('APP_URL') }}/register" class="max-w-[40rem]">
                     @csrf
                     <div class="flex flex-col mb-[2.5rem] sm:mb-[2rem]">
                         <label for="username"

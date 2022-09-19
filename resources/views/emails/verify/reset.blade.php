@@ -205,9 +205,7 @@
                                                 <tr>
                                                     <td align="center"
                                                         style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
-                                                        <!-- Border based button
-                                   https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
-
+                                
                                                         <table width="100%" border="0" cellspacing="0"
                                                             cellpadding="0" role="presentation">
                                                             <tr>

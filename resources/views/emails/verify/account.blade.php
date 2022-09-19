@@ -191,7 +191,8 @@
     style="width: 100% !important; height: 100vh !important;display:flex;align-items:center;justify-content:center; -webkit-text-size-adjust: none; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; background-color: #ffffff; color: #010414; margin: 0;"
     bgcolor="#ffffff">
     <span class="preheader"
-        style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">Use this mail to activate your account.</span>
+        style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">Use
+        this mail to activate your account.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation"
         style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #ffffff; margin: 0; padding: 0;"
         bgcolor="#ffffff">
@@ -235,7 +236,7 @@
                                                                     <p
                                                                         style="font-size:18px;font-weight:400;font-family:'Inter',sans-serif;margin-bottom:40px;color:#010414;">
                                                                         click this button to verify your email</p>
-                                                                    <a href="http://127.0.0.1:8000/verify?code={{ $url }}"
+                                                                    <a href="{{ getenv('APP_URL') }}/verify?code={{ $url }}"
                                                                         target="_blank" class="f-fallback button"
                                                                         style="position:relative;width:70%; height:50px; font-size:18px;font-weight:900;font-family:'Inter'; color: #FFF; border:none; background-color: #0FBA68 !important; display: text-align:center; text-decoration: none; border-radius: 8px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); -webkit-text-size-adjust: none; box-sizing: border-box;">
                                                                         <span class="ninja"
