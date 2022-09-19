@@ -1,3 +1,5 @@
+ !["coronatime"](./public/images/header.png)
+
 #
 ### CoronaTime
 
@@ -24,19 +26,19 @@ Application supports English and Georgian languages.
 #
 ### Prerequisites
 
-* <img src="readme/assets/php.svg" width="35" style="position: relative; top: 4px" /> *PHP@8.0 and up*
-* <img src="readme/assets/sql.png" width="35" style="position: relative; top: 4px" /> *MYSQL@8 and up*
-* <img src="readme/assets/npm.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
-* <img src="readme/assets/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2 and up*
+* <img src="./public/images/PHP-logo.png" width="35" style="position: relative; top: 4px" /> *PHP@8.0 and up*
+* <img src="./public/images/mysql.png" width="35" style="position: relative; top: 4px" /> *MYSQL@8 and up*
+* <img src="./public/images/npm.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
+* <img src="./public/images/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2 and up*
 
 
 
 #
 ### Tech Stack
 
-* <img src="readme/assets/laravel.png" height="18" style="position: relative; top: 4px" /> [Laravel@8.1.x](https://laravel.com/docs/8.1.x) - back-end framework
-* <img src="readme/assets/spatie.png" height="19" style="position: relative; top: 4px" /> [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
-* <img src="readme/assets/screenshot_361.png" height="19" style="position: relative; top: 4px" /> [Tailwindcss](github.com/tailwindlabs/tailwindcss) - css framework for styling
+* <img src="./public/images/laravel.png" height="18" style="position: relative; top: 4px" /> [Laravel@8.1.x](https://laravel.com/docs/8.1.x) - back-end framework
+* <img src="./public/images/spatie.png" height="19" style="position: relative; top: 4px" /> [Spatie Translatable](https://github.com/spatie/laravel-translatable) - package for translation
+
 
 
 #
@@ -100,7 +102,7 @@ it builds your Tailwindcss styling into executable CSS.
 ### Deployment
 <br/>
 
-!["nginx / php fpm"](./readme/assets/php-fpm-nginx.png)
+!["nginx / php fpm"](./public/images/php-fpm-nginx-logo.png)
 
 <br />
 
@@ -117,4 +119,4 @@ After these steps everything should be OK :pray:
 
 #
 ### Resources
-!["nginx / php fpm"](./public/images/coronatimeDrawsql.png)
+!["drawsql"](./public/images/coronatimeDrawsql.png)
