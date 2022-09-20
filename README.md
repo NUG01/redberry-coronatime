@@ -119,4 +119,4 @@ After these steps everything should be OK :pray:
 
 #
 ### Resources
-!["drawsql"](./public/images/coronatimeDrawsql.png)
+!["drawsql"](./public/images/drawsql.png)
