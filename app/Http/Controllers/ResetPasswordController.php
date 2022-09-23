@@ -19,15 +19,10 @@ class ResetPasswordController extends Controller
 		return view('passwordReset');
 	}
 
-	public function showSuccess(): View
-	{
-		return view('passwordUpdated');
-	}
-
-	public function changePassword(): View
-	{
-		return view('changePassword');
-	}
+	// public function showSuccess(): View
+	// {
+	// 	return view('passwordUpdated');
+	// }
 
 	public function resetForm(ResetPasswordRequest $request, $token = null): View
 	{
@@ -42,7 +37,7 @@ class ResetPasswordController extends Controller
 
 		if (!$checkToken)
 		{
-			return back();
+			return redirect()->back();
 		}
 		else
 		{

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 Route::get('/change-locale/{locale}', [LanguageController::class, 'locale'])->name('locale.change');
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
 Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('verification.notice')->middleware('verified');
@@ -47,9 +47,10 @@ Route::controller(RegisterController::class)->group(function () {
 });
 
 Route::controller(ResetPasswordController::class)->group(function () {
+	// Route::get('/forget-password', 'show')->name('forgetPassword.show')->middleware('guest');
 	Route::get('/forget-password', 'show')->name('forgetPassword.show');
+	// Route::post('/forget-password', 'send')->name('forgetPassword.send')->middleware('guest');
 	Route::post('/forget-password', 'send')->name('forgetPassword.send');
-	Route::get('/forget-password/{token}', 'resetForm')->name('forgetPassword.form');
-	Route::get('/reset-password', 'changePassword')->name('password.change');
-	Route::post('/reset-password-form', 'update')->name('password.update');
+	Route::get('/forget-password/{token}', 'resetForm')->name('forgetPassword.form')->middleware('guest');
+	Route::post('/reset-password-form', 'update')->name('password.update')->middleware('guest');
 });
