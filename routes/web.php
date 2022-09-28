@@ -3,8 +3,13 @@
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\TableSortController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,37 +22,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/change-locale/{locale}', [LanguageController::class,'locale'])->name('locale.change');
-
-Route::get('/register', [RegisterController::class, 'create'])->name('register.create')->middleware('guest');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.register')->middleware('guest');
-
+Auth::routes(['verify' => true]);
+Route::get('/change-locale/{locale}', [LanguageController::class, 'locale'])->name('locale.change');
 Route::get('/verify', [EmailVerificationController::class, 'verifyUser'])->name('verify.user')->middleware('guest');
+Route::get('/email-confirmation', [EmailVerificationController::class, 'emailConfirmation'])->name('verification.notice')->middleware('verified');
 
-Route::get('/', [LoginController::class, 'redirect'])->name('login.redirect')->middleware('guest');
-Route::get('/login', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
-Route::post('/login', [LoginController::class, 'login'])->name('user.login')->middleware('guest');
-
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout.destroy')->middleware('auth');
-
-Route::get('/email-confirmation', function () {
-	return view('emailConfirmation');
+Route::middleware('auth')->group(function () {
+	Route::get('/worldwide', [StatisticController::class, 'show'])->name('worldwide.show');
+	Route::get('/countries', [StatisticController::class, 'showTable'])->name('countries.show');
+	Route::post('/worldwide', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+	Route::get('/countries/{slug}', [TableSortController::class, 'sort'])->name('table.sort');
 });
 
-Route::get('/reset-password', [ResetPasswordController::class, 'show'])->name('resetPassword.show');
-Route::post('/reset-password', [ResetPasswordController::class, 'send'])->name('resetPassword.send');
-Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetForm'])->name('resetPassword.form');
-Route::post('/password-changed', [ResetPasswordController::class, 'update'])->name('password.update');
+Route::controller(LoginController::class)->group(function () {
+	Route::get('/', 'redirect')->name('login.redirect')->middleware('auth');
+	Route::get('/login', 'show')->name('login.show')->middleware('guest');
+	Route::post('/login', 'login')->name('user.login')->middleware('guest');
+	Route::post('/logout', 'logout')->name('logout.destroy')->middleware('auth');
+});
 
-Route::get('/password-updated', function () {
-	return view('passwordUpdated');
+Route::controller(RegisterController::class)->group(function () {
+	Route::get('/register', 'create')->name('register.create')->middleware('guest');
+	Route::post('/register', 'register')->name('register.register')->middleware('guest');
 });
-Route::get('/change-password', function () {
-	return view('changePassword');
+
+Route::controller(ResetPasswordController::class)->group(function () {
+	Route::get('/forget-password', 'show')->name('forgetPassword.show')->middleware('guest');
+	Route::post('/forget-password', 'send')->name('forgetPassword.send')->middleware('guest');
+	Route::get('/forget-password/{token}', 'resetForm')->name('forgetPassword.form')->middleware('guest');
+	Route::post('/reset-password-form', 'update')->name('password.update')->middleware('guest');
 });
-Route::get('/worldwide', function () {
-	return view('worldwide');
-})->middleware('auth');
-Route::get('/countries', function () {
-	return view('countries');
-})->middleware('auth');

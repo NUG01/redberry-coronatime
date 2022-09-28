@@ -4,7 +4,7 @@
 
     <body class="flex justify-center">
         <main class="content flex flex-col items-center" style="width:42rem">
-            <img src="images/Group 1.png" class="mt-[4rem]" style="margin-bottom: 25rem" />
+            <img src="{{ url('/images/header.png') }}" class="mt-[4rem]" style="margin-bottom: 25rem" />
             <div class="flex flex-col items-center justify-center w-full">
 
                 <x-confirmation></x-confirmation>
@@ -13,8 +13,8 @@
                     account is confirmed, you can sign in
                 </p>
 
-                <a href="/login"
-                    class="mb-[2.5rem] h-[6rem] w-full flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase">
+                <a href="{{ getenv('APP_URL') }}/login"
+                    class="mb-[2.5rem] h-[6rem] w-full sm:w-[90%] flex items-center justify-center bg-[#0FBA68] font-black text-[1.6rem] text-white rounded-xl uppercase sm:mt-[50%]">
                     Sign
                     in
                 </a>

@@ -1,0 +1,8 @@
+# enables extension
+zend_extension=xdebug.so
+
+# enables step debugging feature
+xdebug.mode=debug
+
+# step debugging will be triggered# on the start of php script exection 
+xdebug.start_with_request=yes

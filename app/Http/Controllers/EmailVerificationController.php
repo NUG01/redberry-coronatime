@@ -23,7 +23,7 @@ class EmailVerificationController extends Controller
 		}
 		else
 		{
-			return redirect('/register');
+			return redirect()->route('register.create');
 		}
 	}
 
@@ -34,7 +34,11 @@ class EmailVerificationController extends Controller
 			'verification_code' => $verificationCode,
 			'username'          => $username,
 		];
-
 		Mail::to($email)->send(new RegisterEmail($data));
+	}
+
+	public function emailConfirmation(): View
+	{
+		return view('emailConfirmation');
 	}
 }

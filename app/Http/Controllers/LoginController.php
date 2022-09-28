@@ -19,25 +19,24 @@ class LoginController extends Controller
 		$password = $request->validated()['password'];
 		$this->validated = filter_var($username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1]))
+		if (auth()->attempt([$this->validated=>$username, 'password'=>$password, 'is_verified' => 1], $request->has('remember_device')))
 		{
-			return redirect('/worldwide');
+			return redirect()->route('worldwide.show');
 		}
 		else
 		{
-			return redirect()->back()->with('incorrect', 'Provided credentials are incorrect. Try again.');
+			return redirect()->back()->with('incorrect', '');
 		}
 	}
 
   public function logout(): RedirectResponse
   {
   	auth()->logout();
-  	return redirect('/login');
+  	return redirect()->route('login.show');
   }
+
   public function redirect(): RedirectResponse
   {
-  	return redirect('/login');
+  	return redirect()->route('login.show');
   }
-
-
 }

@@ -15,6 +15,8 @@ class RegisterEmail extends Mailable
 	 *
 	 * @return void
 	 */
+	public $data;
+
 	public function __construct($data)
 	{
 		$this->data = $data;
@@ -29,6 +31,6 @@ class RegisterEmail extends Mailable
 	{
 		return $this->from('nskhiereli@gmail.com', 'CoronaTime')
 		->subject('Account Confirmation')
-		->markdown('emails.verify.account', ['url'=>$this->data['verification_code']]);
+		->view('emails.verify.account', ['url'=>$this->data['verification_code']]);
 	}
 }

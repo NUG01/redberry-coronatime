@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyUser extends Mailable
+class SubscribeEmail extends Mailable
 {
 	use Queueable, SerializesModels;
 
@@ -26,6 +26,10 @@ class VerifyUser extends Mailable
 	 */
 	public function build()
 	{
-		return $this->markdown('emails.verify.account');
+		{
+			return $this->from('nskhiereli@gmail.com', 'CoronaTime')
+			->subject('Subscription')
+			->view('emails.verify.subscribe');
+		}
 	}
 }
