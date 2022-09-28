@@ -93,8 +93,8 @@ return [
 	| the language folders that are provided through your application.
 	|
 	*/
-
-	'fallback_locale' => 'en',
+	'fallback_locale'   => 'en',
+	'available_locales' => ['en', 'ka'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -183,7 +183,7 @@ return [
 		/*
 		 * Package Service Providers...
 		 */
-
+		Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
 		/*
 		 * Application Service Providers...
 		 */
