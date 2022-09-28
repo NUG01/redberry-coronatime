@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     @vite('resources/css/app.css')
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -66,6 +67,15 @@
             font-weight: 400;
             font-size: 1.6rem;
             color: #808189;
+        }
+
+        input:focus {
+            outline-style: none;
+            box-shadow: 0 0 1.8px 1.8px #202bf372;
+        }
+
+        button:focus {
+            box-shadow: none;
         }
     </style>
 </head>
