@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Mail\RegisterEmail;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
@@ -11,12 +10,6 @@ use Tests\TestCase;
 class RegisterTest extends TestCase
 {
 	use RefreshDatabase;
-	// private User $user;
-
-	// protected function setUp(): void{
-	// 	parent::setUp();
-	// 	$this->user=User::factory()->create();
-	// }
 
 	public function test_if_registration_page_is_available()
 	{

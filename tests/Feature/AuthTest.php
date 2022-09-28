@@ -79,7 +79,6 @@ public function test_auth_should_give_password_error_if_no_password_is_provided(
 			'is_verified' => 1,
 		]);
 
-		// $this->assertAuthenticated();
 		$this->actingAs($this->user);
 
 		$response->assertRedirect(route('worldwide.show'));
@@ -121,5 +120,11 @@ public function test_auth_should_give_password_error_if_no_password_is_provided(
 
 		$response->assertSessionHas('lang', 'en');
 		$response->assertRedirect(back());
+	}
+
+	public function test_if_login_page_redirect_is_successfull_from_main()
+	{
+		$response = $this->actingAs($this->user)->get('/');
+		$response->assertRedirect(route('login.show'));
 	}
 }

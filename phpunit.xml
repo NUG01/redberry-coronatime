@@ -19,11 +19,16 @@
         <exclude>
             <directory>./app/Http/Middleware</directory>
             <directory>./app/Exceptions</directory>
+            <directory>./app/Notifications</directory>
             <directory>./app/Exceptions</directory>
             <directory>./app/Providers</directory>
             <file>./app/Http/Controllers/Controller.php</file>
             <file>./app/Console/Kernel.php</file>
             <file>./app/Http/Kernel.php</file>
+            <file>./app/Http/Controllers/NewsletterController.php</file>
+            <file>./app/Http/Requests/SubscribeRequest.php</file>
+            <file>./app/Mail/SubscribeEmail.php</file>
+            <file>./app/Models/Statistic.php</file>
          
         </exclude>
     </coverage>

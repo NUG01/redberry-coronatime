@@ -6,7 +6,6 @@
             <div class="ml-[10%] mt-[4rem] block max-w-[40rem] sm:ml-[16px] sm:mr-[16px] sm:mt-[24px]">
                 <div class="flex align-center justify-between">
                     <img src="{{ url('/images/header.png') }}" class="mb-[6rem] sm:mb-[4rem]">
-                    {{-- <img src="images/header.png" class="mb-[6rem] sm:mb-[4rem]"> --}}
                     <x-language></x-language>
                 </div>
                 <div class="flex flex-col mb-[2.5rem]">
@@ -55,10 +54,12 @@
                         @enderror
                     </div>
 
+
                     <div class="flex mb-[2.5rem] justify-between">
-                        <div class="flex gap-[0.8rem] items-center">
+                        <div class="flex gap-[0.8rem] items-center" x-data="{ show: false }" @click.away="show= false"
+                            @click="show = ! show">
                             <div class="relative">
-                                <x-checkbox-icon></x-checkbox-icon>
+                                <x-checkbox-icon x-show="show" style="display: none"></x-checkbox-icon>
                                 <input type="checkbox" name="remember_device" id="remember_device"
                                     class="border border-[#E6E6E7] border-solid w-[20px] h-[20px] rounded-[4px] cursor-pointer">
                             </div>

@@ -32,57 +32,61 @@ class PasswordResetTest extends TestCase
 
 	public function test_if_password_reset_request_is_sent_to_the_mail()
 	{
-		$token = bin2hex(random_bytes(32));
-		$mail = fake()->email();
-		$data = [
-			'email'=> $mail, ];
-		$response = $this->post('/forget-password', ['email'=>$data['email']]);
-
-		$bool = $data ? true : null;
-
-		$this->assertTrue($bool);
+		$response = $this->post('/forget-password', ['email'=>$this->user->email]);
 		Mail::fake();
-
-		Mail::to($data['email'])->send(new RegisterEmail($data));
+		Mail::to($this->user->email)->send(new RegisterEmail($this->user->email));
 		Mail::assertSent(RegisterEmail::class);
-		// $response->assertRedirect('/');
-		dd($response->content());
 		$response->assertViewIs('resetConfirm');
 	}
 
-	// $actionLink = route('forgetPassword.form', ['token'=>$token, 'email'=>$data['email']]);
+	public function test_if_password_updating_is_success_with_right_credentials()
+	{
+		$token = bin2hex(random_bytes(32));
+		$pass = bcrypt('pass123');
+		$data = [
+			'password'       => $pass,
+			'repeat-password'=> $pass,
+			'token'          => $token,
+		];
+		DB::table('password_resets')->insert([
+			'email'     => $this->user->email,
+			'token'     => $token,
+			'created_at'=> Carbon::now(),
+		]);
+		$checkToken = DB::table('password_resets')->get();
+		$response = $this->post('/reset-password-form', $data);
+		$hasUser = $checkToken ? true : false;
+		$this->assertTrue($hasUser);
 
-	//         Mail::send('emails.verify.reset', ['action_link'=>$actionLink, 'body'=>fake()->sentence()], function ($message) use($data) {
-	//             $message->from(fake()->email(), fake()->name());
-	//             $message->to($data['email'], fake()->name())->subject(fake()->word());
-	//         });
-	// public function test_if_password_updating_is_success_with_wrong_credentials()
-	// {
-	// 	$token = bin2hex(random_bytes(32));
-	// 	$response = $this->post('/reset-password-form', [
-	// 		'password'       => bcrypt('pass123'),
-	// 		'repeat-password'=> bcrypt('pass123'),
-	// 		'token'          => $token,
-	// 	]);
-	// 	DB::table('password_resets')->insert([
-	// 		'email'     => $this->user->email,
-	// 		'token'     => $token,
-	// 		'created_at'=> Carbon::now(),
-	// 	]);
+		User::where('email', $this->user->email)->update([
+			'password'=> Hash::make($pass), ]);
+		DB::table('password_resets')->where([
+			'email'=> $this->user->email, ])->delete();
 
-	// 	$checkToken = DB::table('password_resets')->where([
-	// 		'token'=> $token,
-	// 	])->first();
+		$response->assertViewIs('signResetPassword');
+	}
 
-	// 	$hasUser = $checkToken ? true : false;
+	public function test_if_password_updating_is_success_with_wrong_credentials()
+	{
+		$token = bin2hex(random_bytes(32));
+		$token2 = bin2hex(random_bytes(32));
+		$data = [
+			'password'       => 'pass123',
+			'repeat-password'=> 'pass123',
+			'token'          => $token2,
+		];
+		$response = $this->post('/reset-password-form', $data);
+		$checkToken = DB::table('password_resets')->where([
+			'token'=> $token,
+		])->first();
+		$response->assertRedirect('/');
+	}
 
-	// 	$this->assertTrue($hasUser);
-	// 	User::where('email', $checkToken->email)->update([
-	// 		'password'=> Hash::make('pass123'), ]);
-	// 	DB::table('password_resets')->where([
-	// 		'email'=> $this->user->email, ])->delete();
-	// 	dd($response->assertSeeText('reset'));
-	// 	$response->assertViewIs('signResetPassword');
-	// 	dd('hi');
-	// }
+	public function test_if_reset_form_is_shown()
+	{
+		$token = bin2hex(random_bytes(32));
+		$response = $this->get('/forget-password/' . $token . '?email=' . $this->user->email);
+		$response->assertViewIs('changePassword');
+		$response->assertViewHas(['token'=>null, 'email'=>$this->user->email]);
+	}
 }

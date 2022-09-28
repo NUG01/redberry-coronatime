@@ -32,21 +32,15 @@ class EmailVerifyTest extends TestCase
 		$response->assertViewIs('emailConfirmation');
 	}
 
-//     public function test_if_user_verify_view_is_returned_with_token(){
-//         $response=$this->actingAs($this->user)->get('/verify');
-//         $this->user['is_verified']=0;
-//        $verified=User::where(['verification_code'=>$this->user->verification_code])->first();
-//        $hasUser = $verified ? true : false;
+	public function test_if_user_verify_view_is_returned_with_token()
+	{
+		$user = User::where(['verification_code'=>$this->user->verification_code])->first();
+		$response = $this->get('/verify?code=' . $this->user->verification_code);
+		$user['is_verified'] = 1;
 
-//        $this->assertTrue($hasUser);
-//        $verified->is_verified=1;
-//        $verified->save();
+		$response->assertViewIs('emailConfirmation', ['code'=>$user->verification_code]);
+	}
 
-//     $response->assertViewIs('emailConfirmation');
-//     dd('hi');
-
-//     $response->assertViewHas('code',$verified->verification_code);
-// }
 public function test_if_user_verify_view_is_not_returned_with_token()
 {
 	$response = $this->get('/verify');

@@ -19,11 +19,6 @@ class ResetPasswordController extends Controller
 		return view('passwordReset');
 	}
 
-	// public function showSuccess(): View
-	// {
-	// 	return view('passwordUpdated');
-	// }
-
 	public function resetForm(ResetPasswordRequest $request, $token = null): View
 	{
 		return view('changePassword')->with(['token'=>$token, 'email'=>$request->email]);
@@ -34,12 +29,11 @@ class ResetPasswordController extends Controller
 		$checkToken = DB::table('password_resets')->where([
 			'token'=> $request->token,
 		])->first();
-
 		if (!$checkToken)
 		{
-			return redirect()->back();
+			return redirect('/');
 		}
-		else
+		elseif ($checkToken)
 		{
 			User::where('email', $checkToken->email)->update([
 				'password'=> Hash::make($request->password),
@@ -48,7 +42,6 @@ class ResetPasswordController extends Controller
 			DB::table('password_resets')->where([
 				'email'=> $checkToken->email,
 			])->delete();
-
 			return view('signResetPassword');
 		}
 	}

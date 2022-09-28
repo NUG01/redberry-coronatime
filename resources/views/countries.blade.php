@@ -6,7 +6,8 @@
             <div>
                 <p class="font-extrabold text-[2.5rem] mb-[4rem]">{{ __('translate.worldwide_statistics') }}</p>
                 <div class="flex justify-between">
-                    <a href="{{ getenv('APP_URL') }}/worldwide" class="font-normal text-[1.6rem]">{{ __('translate.worldwide') }}</a>
+                    <a href="{{ getenv('APP_URL') }}/worldwide"
+                        class="font-normal text-[1.6rem]">{{ __('translate.worldwide') }}</a>
                     <a href="{{ getenv('APP_URL') }}/countries"
                         class="font-bold text-[1.6rem] pb-[1.6rem] border-b-[3px] border-[#010414]">{{ __('translate.countries') }}</a>
                 </div>
@@ -103,11 +104,20 @@
                             <tbody class="bg-white">
                                 @foreach ($statistic as $country)
                                     <tr>
-
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] ssm:pl-6 lg:pl-8">
-                                            {{ $country['country'] == 'United States of America' ? 'USA' : $country['country'] }}
+                                            {{ Config::get('app.locale') == 'en'
+                                                ? ($country['country'] == 'United States of America'
+                                                    ? 'USA'
+                                                    : $country['name'])
+                                                : ($country['country'] == 'United States of America'
+                                                    ? 'ა.შ.შ'
+                                                    : $country['name']) }}
                                         </td>
+                                        {{-- <td
+                                            class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] ssm:pl-6 lg:pl-8">
+                                            {{ $country['country'] == 'United States of America' ? 'USA' : $country['name'] }}
+                                        </td> --}}
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 {{ Config::get('app.locale') == 'en' ? 'text-[12px]' : 'text-[10px]' }} font-medium text-[#010414] hidden sm:table-cell">
                                             {{ number_format($country['confirmed']) }}
@@ -219,7 +229,7 @@
 
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-[14px] font-medium text-[#010414] ssm:pl-6 llg:pl-8">
-                                            {{ $country['country'] }}
+                                            {{ $country['name'] }}
                                         </td>
                                         <td
                                             class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-[14px] font-medium text-[#010414] hidden ssm:table-cell">
